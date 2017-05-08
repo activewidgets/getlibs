@@ -31,3 +31,30 @@ ES6 and JSX are included (via client-side Babel plugin). The dependencies automa
 </script>
 ```
 
+Old-style ES5/require() also work.
+
+```js
+<script type="x-module">
+
+  var $ = require('jquery');
+
+  $('#app').text('Hello!');
+
+</script>
+```
+
+Load external files via `System.import()` -
+
+```js
+<script>
+    System.import('app.js'); // async, returns promise
+</script>
+```
+
+Load CSS, HTML (via pre-configured SystemJS plugins) - 
+
+```js
+    require('app.css'); // injected as <style> tag
+    
+    var template = require('app.html');
+```
