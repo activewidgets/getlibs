@@ -8,12 +8,17 @@ Pre-configured SystemJS + Unpkg setup for easy prototyping
 
 ## Installation
 
-```
+Just include a link to ax-system script on unpkg CDN.
+
+```html
 <script src="https://unpkg.com/ax-system"></script>
 ```
 
 ## Usage
-```
+
+ES6 and JSX are included (via client-side Babel plugin). The dependencies automagically pulled by SystemJS directly from unpkg CDN.
+
+```js
 <script type="x-module">
 
   import React from 'react';
@@ -25,3 +30,4 @@ Pre-configured SystemJS + Unpkg setup for easy prototyping
 
 </script>
 ```
+
