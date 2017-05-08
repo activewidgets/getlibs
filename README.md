@@ -47,14 +47,14 @@ Load external files via `System.import()` -
 
 ```js
 <script>
-    System.import('app.js'); // async, returns promise
+    System.import('./app.js'); // async, returns promise
 </script>
 ```
 
 Load CSS, HTML (via pre-configured SystemJS plugins) - 
 
 ```js
-    require('app.css'); // injected as <style> tag
+    require('./app.css'); // injected as <style> tag
     
-    var template = require('app.html');
+    var template = require('./app.html');
 ```
