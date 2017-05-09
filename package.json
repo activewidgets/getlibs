@@ -1,6 +1,6 @@
 {
   "name": "ax-system",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pre-configured SystemJS + Unpkg bundle for easy prototyping",
   "main": "dist/ax-system.js",
   "unpkg": "dist/ax-system.min.js",
