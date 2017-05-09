@@ -21,7 +21,10 @@ SystemJS.config({
 	},
 
 	map: {
-		'activewidgets': 'https://cdn.activewidgets.com/',
+		'activewidgets': '@activewidgets',
+
+		'ember': '@ember/ember.min.js',
+		'ember-template-compiler': '@ember/ember-template-compiler.js',
 
 		'rxjs/Observable': 'rxjs',
 		'rxjs/observable/merge': '@rxjs.Observable',
@@ -39,9 +42,17 @@ SystemJS.config({
 	meta: {
 		'@angular/core': {deps: ['core-js', 'zone.js']},
 
+		'ember': {deps: ['jquery', 'ember-template-compiler'], format: 'global'},
+		'ember-template-compiler': {format: 'global'},
+
 		'*.ts': {loader: 'ts'},
 		'*.css': {loader: 'css'},
 		'*.html': {loader: 'text'}
+	},
+
+	paths: {
+		'@activewidgets': 'https://cdn.activewidgets.com/',
+		'@ember': 'https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.13.0'
 	},
 
 	typescriptOptions: {
