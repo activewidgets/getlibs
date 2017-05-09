@@ -21,9 +21,15 @@
 
 			var el = scripts[i];
 				attr = el.getAttribute('name'),
-				name = attr || 'tag-' + i + '.js',
+				lang = el.getAttribute('lang'),
+				ext = lang || 'js';
+				name = attr || './script' + (i+1) + '.' + ext,
 				full = SystemJS.normalizeSync(name),
 				meta = {};
+
+			if (lang && !attr){
+				SystemJS.config({transpiler: lang});
+			}
 
 			content[full] = el.innerHTML;
 
