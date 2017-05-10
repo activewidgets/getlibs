@@ -6,7 +6,7 @@
   "unpkg": "dist/getlibs.min.js",
   "files": [
      "dist",
-     "lib",
+     "cfg",
      "config.js",
      "x-modules.js"
   ],
