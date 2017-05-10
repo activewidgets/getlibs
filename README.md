@@ -1,6 +1,6 @@
 
 
-[![ActiveWidgets](http://www.activewidgets.com/include/logo/aw-logo-40.png?vue-adapter-readme)](http://www.activewidgets.com/)
+[![ActiveWidgets](http://www.activewidgets.com/include/logo/aw-logo-40.png?getlibs-readme)](http://www.activewidgets.com/)
 
 ## SystemJS + Unpkg = :-)
 
@@ -8,10 +8,10 @@ Pre-configured SystemJS + Unpkg setup for easy prototyping
 
 ## Installation
 
-Just include a link to ax-system script on unpkg CDN.
+Just include a link to getlibs script on unpkg CDN.
 
 ```html
-<script src="https://unpkg.com/ax-system"></script>
+<script src="https://unpkg.com/getlibs"></script>
 ```
 
 ## Usage

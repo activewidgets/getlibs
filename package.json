@@ -1,9 +1,9 @@
 {
-  "name": "ax-system",
-  "version": "0.0.3",
-  "description": "Pre-configured SystemJS + Unpkg bundle for easy prototyping",
-  "main": "dist/ax-system.js",
-  "unpkg": "dist/ax-system.min.js",
+  "name": "getlibs",
+  "version": "0.0.2",
+  "description": "Load library modules on the client-side",
+  "main": "dist/getlibs.js",
+  "unpkg": "dist/getlibs.min.js",
   "files": [
      "dist",
      "lib",
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/activewidgets/systemjs-unpkg-config.git"
+    "url": "git+https://github.com/activewidgets/getlibs.git"
   },
   "keywords": [
     "systemjs",
@@ -35,7 +35,7 @@
   "author": "webmaster@activewidgets.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/activewidgets/systemjs-unpkg-config/issues"
+    "url": "https://github.com/activewidgets/getlibs/issues"
   },
-  "homepage": "https://github.com/activewidgets/systemjs-unpkg-config#readme"
+  "homepage": "https://github.com/activewidgets/getlibs#readme"
 }
