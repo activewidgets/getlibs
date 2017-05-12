@@ -1,17 +1,12 @@
 
 SystemJS.config({
 
+	packages: {
+		'ember': {main: 'ember.min.js', meta: {'*.js': {format: 'global', deps: ['jquery']}}}
+	},
+
 	map: {
-		'ember': '@ember/ember.min.js',
-		'ember-template-compiler': '@ember/ember-template-compiler.js'
-	},
-
-	meta: {
-		'ember': {deps: ['jquery', 'ember-template-compiler'], format: 'global'},
-		'ember-template-compiler': {format: 'global'}
-	},
-
-	paths: {
-		'@ember': 'https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.13.0'
+		'ember': 'https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.13.0',
+		'ember-template-compiler': 'https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.13.0/ember-template-compiler.js'
 	}
 });

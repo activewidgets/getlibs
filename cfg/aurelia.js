@@ -33,12 +33,8 @@ SystemJS.config({
 	},
 
 	map: {
-		'aurelia-core':  '@aurelia/aurelia-core.min.js',
-		'aurelia-routing': '@aurelia/aurelia-routing.min.js'
-	},
-
-	paths: {
-		'@aurelia': 'https://rawgit.com/aurelia/aurelia/master/scripts'
+		'aurelia-core':  'https://rawgit.com/aurelia/aurelia/master/scripts/aurelia-core.min.js',
+		'aurelia-routing': 'https://rawgit.com/aurelia/aurelia/master/scripts/aurelia-routing.min.js'
 	}
 });
 
