@@ -10,7 +10,7 @@ var files = [
 	'node_modules/systemjs/dist/system.src.js',
 	'config.js',
 	'cfg/*.js',
-	'x-modules.js'
+	'plugins/x-modules.js'
 ];
 
 
