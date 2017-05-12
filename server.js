@@ -12,7 +12,7 @@ app.all('/*', function(req, res, next) {
 });
 
 
-app.use('/', express.static('dist', cfg));
+app.use('/', express.static('./', cfg));
 
 
 app.listen(process.env.PORT || 80);

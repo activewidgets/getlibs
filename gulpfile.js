@@ -15,7 +15,7 @@ var files = [
 
 
 var cfg = {
-	sourceMappingURLPrefix: '/getlibs@' + version + '/dist'
+	sourceMappingURLPrefix: 'https://unpkg.com/getlibs@' + version
 };
 
 
@@ -23,9 +23,9 @@ gulp.task('source', function() {
 
 	return gulp.src(files, {base: './'})
 		.pipe(sourcemaps.init())
-		.pipe(concat('getlibs.js'))
+		.pipe(concat('src.js'))
 		.pipe(sourcemaps.write('', cfg))
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest(''));
 });
 
 
@@ -34,9 +34,9 @@ gulp.task('minified', function() {
 	return gulp.src(files, {base: './'})
 		.pipe(sourcemaps.init())
 		.pipe(uglify())
-		.pipe(concat('getlibs.min.js'))
+		.pipe(concat('system.js'))
 		.pipe(sourcemaps.write('', cfg))
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest(''));
 });
 
 

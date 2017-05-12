@@ -1,14 +1,17 @@
 {
   "name": "getlibs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Load library modules on the client-side",
-  "main": "dist/getlibs.js",
-  "unpkg": "dist/getlibs.min.js",
+  "main": "src.js",
+  "unpkg": "system.js",
   "files": [
-     "dist",
-     "cfg",
-     "config.js",
-     "x-modules.js"
+	"system.js",
+	"system.js.map",
+	"src.js",
+	"src.js.map",
+	"cfg",
+	"config.js",
+	"x-modules.js"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -30,7 +33,8 @@
   },
   "keywords": [
     "systemjs",
-    "unpkg"
+    "unpkg",
+    "cdnjs"
   ],
   "author": "webmaster@activewidgets.com",
   "license": "MIT",
