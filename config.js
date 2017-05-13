@@ -9,6 +9,9 @@ SystemJS.config({
 	},
 
 	map: {
+		'src': './src',
+		'vendor': './vendor',
+
 		'ts': 'plugin-typescript',
 		'css': 'systemjs-plugin-css/css.js',
 		'text': 'systemjs-plugin-text/text.js',
