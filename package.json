@@ -1,7 +1,7 @@
 {
   "name": "getlibs",
   "version": "0.0.3",
-  "description": "Load library modules on the client-side",
+  "description": "Modern javascript in index.html or static files. No server/build required.",
   "main": "src.js",
   "unpkg": "system.js",
   "files": [
@@ -14,18 +14,24 @@
 	"x-modules.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
+    "test": "wdio test/wdio.local.js",
     "build": "gulp"
   },
   "devDependencies": {
-  	"systemjs": "^0.20.12",
+    "chai": "^3.5.0",
   	"es6-promise": "^4.1.0",
+	"express": "^4.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-sourcemaps": "^2.4.0",
     "gulp-uglify": "^2.0.0",
-	"express": "^4.0.0"
+  	"systemjs": "^0.20.12",
+    "wdio-dot-reporter": "0.0.8",
+    "wdio-mocha-framework": "^0.5.10",
+    "wdio-sauce-service": "^0.4.0",
+    "wdio-spec-reporter": "^0.1.0",
+    "wdio-static-server-service": "^1.0.1",
+    "webdriverio": "^4.8.0"
   },
   "repository": {
     "type": "git",

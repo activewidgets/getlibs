@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../../../system.js"></script>
+</head>
+<body>
+	<div id="app">Loading..</div>
+
+	<script type='x-module'>
+
+		import {Component, NgModule} from '@angular/core';
+		import {BrowserModule} from '@angular/platform-browser';
+		import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
+		class Hello {
+			constructor() {
+				this.msg = 'Hello World!';
+			}
+		}
+
+		Hello.annotations = [new Component({
+			selector: '#app',
+			template: '<h1>{{msg}}</h1>'
+		})];
+
+
+		class App {}
+
+		App.annotations = [new NgModule({
+			imports: [BrowserModule],
+			declarations: [Hello],
+			bootstrap: [Hello]
+		})];
+
+
+		platformBrowserDynamic().bootstrapModule(App);
+
+	</script>
+</body>
+</html>

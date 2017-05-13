@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../../../system.js"></script>
+</head>
+<body>
+	<div id="app"></div>
+
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>{{msg}}</h1>
+	</script>
+
+	<script type="x-module">
+
+		require('ember-template-compiler');
+
+		var Ember = require('ember');
+
+		App = Ember.Application.create({
+			rootElement: '#app'
+		});
+
+		App.IndexController = Ember.Controller.extend({
+			msg: 'Hello World!'
+		});
+
+	</script>
+</body>
+</html>

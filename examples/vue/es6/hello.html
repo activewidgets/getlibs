@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../../../system.js"></script>
+</head>
+<body>
+	<div id="app"><span>Loading..</span></div>
+
+	<script type="x-module">
+
+		import Vue from 'vue';
+
+		new Vue({
+			el: '#app span',
+			template: '<h1>{{msg}}</h1>',
+			data: {
+				msg: 'Hello World!'
+			}
+		});
+
+	</script>
+</body>
+</html>

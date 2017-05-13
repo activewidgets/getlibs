@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../../../system.js"></script>
+</head>
+<body>
+	<div id="app">Loading..</div>
+
+	<script type="x-module">
+
+		/** @jsx createElement */
+
+		import Inferno from 'inferno';
+		import createElement from 'inferno-create-element';
+
+		let msg = 'Hello World!';
+
+		Inferno.render(<h1>{msg}</h1>, document.getElementById('app'));
+
+	</script>
+</body>
+</html>

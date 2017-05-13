@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../../../system.js"></script>
+</head>
+<body>
+	<div id="app" aurelia-app="src/main">Loading..</div>
+
+	<script id="tpl" type="text/template">
+		<template>
+			<h1>${msg}</h1>
+		</template>
+	</script>
+
+	<script>
+
+		SystemJS.set(SystemJS.normalizeSync('src/app.html') + '!text', SystemJS.newModule({
+			default: document.getElementById('tpl').innerHTML
+		}));
+
+
+		SystemJS.amdDefine('src/app', [], function(){
+
+			function App(){
+				this.msg = 'Hello World!';
+			}
+
+			return App;
+		});
+
+		SystemJS.amdDefine('src/main', [], function(){
+
+			function configure(aurelia) {
+
+				aurelia.use.basicConfiguration();
+
+				aurelia.start().then(function(){
+					aurelia.setRoot();
+				});
+			}
+
+			return {
+				configure: configure
+			};
+		});
+
+
+		SystemJS.import('aurelia-bootstrapper');
+
+	</script>
+</body>
+</html>
