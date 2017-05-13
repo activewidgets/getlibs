@@ -45,7 +45,7 @@
 		var loader = Object.create(base);
 		loader.fetch = localfetch;
 		return loader;
-	};
+	}
 
 
 	function registerLoader(name){
@@ -174,7 +174,7 @@
 
 		var pathRegExp = /^(.+\/ajax\/libs\/[^\/]+\/[^\/]+)\/(.+)$/;
 
-		var i, k, map = {}, packages = {}, item, path, filename, items = res.results, defined = SystemJS.map;
+		var i, map = {}, packages = {}, item, path, filename, items = res.results, defined = SystemJS.map;
 
 		for(i=0; i<items.length; i++){
 

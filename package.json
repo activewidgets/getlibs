@@ -5,13 +5,13 @@
   "main": "src.js",
   "unpkg": "min.js",
   "files": [
-	"min.js",
-	"min.js.map",
-	"src.js",
-	"src.js.map",
-	"cfg",
-	"plugins",
-	"config.js"
+    "min.js",
+    "min.js.map",
+    "src.js",
+    "src.js.map",
+    "cfg",
+    "plugins",
+    "config.js"
   ],
   "scripts": {
     "test": "gulp && wdio test/wdio.local.js",
@@ -19,13 +19,14 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-  	"es6-promise": "^4.1.0",
-	"express": "^4.0.0",
+    "es6-promise": "^4.1.0",
+    "express": "^4.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^3.0.1",
     "gulp-sourcemaps": "^2.4.0",
     "gulp-uglify": "^2.0.0",
-  	"systemjs": "^0.20.12",
+    "systemjs": "^0.20.12",
     "wdio-dot-reporter": "0.0.8",
     "wdio-mocha-framework": "^0.5.10",
     "wdio-sauce-service": "^0.4.0",
@@ -46,6 +47,15 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/activewidgets/getlibs/issues"
+  },
+  "eslintConfig": {
+  	"extends": "eslint:recommended",
+  	"globals": {
+  	  "SystemJS": true
+  	},
+  	"env": {
+  	  "browser": true
+  	}
   },
   "homepage": "http://getlibs.com"
 }

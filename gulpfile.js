@@ -1,11 +1,11 @@
 
 var fs = require('fs'),
+	eslint = require('gulp-eslint'),
 	gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	sourcemaps = require('gulp-sourcemaps'),
 	uglify = require('gulp-uglify'),
 	version = require('./package.json').version;
-
 
 var files = [];
 
@@ -21,7 +21,15 @@ var cfg = {
 };
 
 
-gulp.task('source', function() {
+gulp.task('lint', function(){
+	return gulp.src(files, {base: './'})
+		.pipe(eslint())
+		.pipe(eslint.format('unix'))
+		.pipe(eslint.failAfterError());
+});
+
+
+gulp.task('source', ['lint'], function() {
 
 	return gulp.src(files, {base: './'})
 		.pipe(sourcemaps.init())
@@ -31,7 +39,7 @@ gulp.task('source', function() {
 });
 
 
-gulp.task('minified', function() {
+gulp.task('minified', ['lint'], function() {
 
 	return gulp.src(files, {base: './'})
 		.pipe(sourcemaps.init())
