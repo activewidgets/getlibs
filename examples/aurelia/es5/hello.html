@@ -18,34 +18,31 @@
 			default: document.getElementById('tpl').innerHTML
 		}));
 
-
-		SystemJS.amdDefine('src/app', [], function(){
-
-			function App(){
-				this.msg = 'Hello World!';
-			}
-
-			return App;
-		});
-
-		SystemJS.amdDefine('src/main', [], function(){
-
-			function configure(aurelia) {
-
-				aurelia.use.basicConfiguration();
-
-				aurelia.start().then(function(){
-					aurelia.setRoot();
-				});
-			}
-
-			return {
-				configure: configure
-			};
-		});
+	</script>
 
 
-		SystemJS.import('aurelia-bootstrapper');
+	<script name="src/app" type="x-module">
+
+		module.exports = function(){
+			this.msg = 'Hello World!';
+		};
+
+	</script>
+
+	<script name="src/main" type="x-module">
+
+		exports.configure = function(aurelia){
+			aurelia.use.basicConfiguration();
+			aurelia.start().then(function(){
+				aurelia.setRoot();
+			});
+		};
+
+	</script>
+
+	<script type="x-module">
+
+		require('aurelia-bootstrapper');
 
 	</script>
 </body>
