@@ -26,7 +26,10 @@ exports.config = {
     services: ['static-server'],
 
 	staticServerPort: 4567,
-    staticServerFolders: [{ mount: '/', path: './' }],
+    staticServerFolders: [
+    	{ mount: '/examples', path: './examples' },
+    	{ mount: '/local', path: './' }
+    ],
 
     framework: 'mocha',
     reporters: ['spec'],

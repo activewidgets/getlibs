@@ -3,18 +3,18 @@
   "version": "0.0.3",
   "description": "Modern javascript in index.html or static files. No server/build required.",
   "main": "src.js",
-  "unpkg": "system.js",
+  "unpkg": "min.js",
   "files": [
-	"system.js",
-	"system.js.map",
+	"min.js",
+	"min.js.map",
 	"src.js",
 	"src.js.map",
 	"cfg",
-	"config.js",
-	"x-modules.js"
+	"plugins",
+	"config.js"
   ],
   "scripts": {
-    "test": "wdio test/wdio.local.js",
+    "test": "gulp && wdio test/wdio.local.js",
     "build": "gulp"
   },
   "devDependencies": {
@@ -47,5 +47,5 @@
   "bugs": {
     "url": "https://github.com/activewidgets/getlibs/issues"
   },
-  "homepage": "https://github.com/activewidgets/getlibs#readme"
+  "homepage": "http://getlibs.com"
 }

@@ -34,7 +34,7 @@ gulp.task('minified', function() {
 	return gulp.src(files, {base: './'})
 		.pipe(sourcemaps.init())
 		.pipe(uglify())
-		.pipe(concat('system.js'))
+		.pipe(concat('min.js'))
 		.pipe(sourcemaps.write('', cfg))
 		.pipe(gulp.dest(''));
 });
