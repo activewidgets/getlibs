@@ -1,17 +1,19 @@
 
-var gulp = require('gulp'),
+var fs = require('fs'),
+	gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	sourcemaps = require('gulp-sourcemaps'),
 	uglify = require('gulp-uglify'),
 	version = require('./package.json').version;
 
-var files = [
-	'node_modules/es6-promise/dist/es6-promise.auto.js',
-	'node_modules/systemjs/dist/system.src.js',
-	'config.js',
-	'cfg/*.js',
-	'plugins/x-modules.js'
-];
+
+var files = [];
+
+String(fs.readFileSync('local/min.js', {encoding:'utf8'})).split('\n').forEach(function(line){
+	if (line.match(/\$import\(.(.+).\);/)){
+		files.push(RegExp.$1);
+	}
+});
 
 
 var cfg = {

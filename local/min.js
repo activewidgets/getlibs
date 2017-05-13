@@ -1,18 +1,18 @@
 
 (function($import){
 
-	$import('../node_modules/es6-promise/dist/es6-promise.auto.js');
-	$import('../node_modules/systemjs/dist/system.src.js');
-	$import('../config.js');
+	$import('node_modules/es6-promise/dist/es6-promise.auto.js');
+	$import('node_modules/systemjs/dist/system.src.js');
+	$import('config.js');
 
-	$import('../cfg/activewidgets.js');
-	$import('../cfg/angular2.js');
-	$import('../cfg/aurelia.js');
-	$import('../cfg/ember.js');
-	$import('../cfg/inferno.js');
-	$import('../cfg/react.js');
+	$import('cfg/activewidgets.js');
+	$import('cfg/angular2.js');
+	$import('cfg/aurelia.js');
+	$import('cfg/ember.js');
+	$import('cfg/inferno.js');
+	$import('cfg/react.js');
 
-	$import('../plugins/x-modules.js');
+	$import('plugins/x-modules.js');
 
 
 })((function(){
@@ -43,7 +43,7 @@
 		throw new Error('Cannot find loading script URL');
 	}
 
-	var base = currentScriptURL().replace(/[^//]+$/, '');
+	var base = currentScriptURL().replace(/\w+\/[^//]+$/, '');
 
 	return function(path){
 		document.write("<script src=\"" + base + path + "\"><\/script>");
