@@ -4,24 +4,15 @@
 	<script src="../../../local/min.js"></script>
 </head>
 <body>
-	<div id="app" aurelia-app="src/main">Loading..</div>
+	<div id="app">Loading..</div>
 
-	<script id="tpl" type="text/template">
+	<script name="src/app.html" type="x-module">
 		<template>
 			<h1>${msg}</h1>
 		</template>
 	</script>
 
-	<script>
-
-		SystemJS.set(SystemJS.normalizeSync('src/app.html') + '!text', SystemJS.newModule({
-			default: document.getElementById('tpl').innerHTML
-		}));
-
-	</script>
-
-
-	<script name="src/app" type="x-module">
+	<script name="src/app.js" type="x-module">
 
 		module.exports = function(){
 			this.msg = 'Hello World!';
@@ -29,20 +20,16 @@
 
 	</script>
 
-	<script name="src/main" type="x-module">
+	<script type="x-module">
 
-		exports.configure = function(aurelia){
+		function configure(aurelia){
 			aurelia.use.basicConfiguration();
 			aurelia.start().then(function(){
-				aurelia.setRoot();
+				aurelia.setRoot('src/app.js', document.getElementById('app'));
 			});
 		};
 
-	</script>
-
-	<script type="x-module">
-
-		require('aurelia-bootstrapper');
+		require('aurelia-bootstrapper').bootstrap(configure);
 
 	</script>
 </body>
