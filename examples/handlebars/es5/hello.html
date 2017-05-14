@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../../../local/min.js"></script>
+</head>
+<body>
+	<div id="app">Loading..</div>
+
+	<script name="./hello.hbs" type="x-module">
+		<h1>{{msg}}</h1>
+	</script>
+
+	<script name="./hello.json" type="x-module">
+		{
+			"msg": "Hello World!"
+		}
+	</script>
+
+	<script type="x-module">
+
+		var data = require('./hello.json'),
+			template = require('./hello.hbs'),
+			$ = require('jquery');
+
+		$('#app').html(template(data));
+
+	</script>
+</body>
+</html>

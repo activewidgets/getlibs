@@ -5,7 +5,7 @@ SystemJS.config({
 
 	packages: {
 		'ts': {main: 'lib/plugin.js'},
-		'typescript': {main: 'typescript.min.js', meta: {'*.js': {exports: 'ts'}}}
+		'typescript': {main: 'typescript.min.js', meta: {'*.js': {exports: 'ts'}}},
 	},
 
 	map: {
@@ -13,8 +13,10 @@ SystemJS.config({
 		'vendor': './vendor',
 
 		'ts': 'plugin-typescript',
-		'css': 'systemjs-plugin-css/css.js',
-		'text': 'systemjs-plugin-text/text.js',
+		'css': 'systemjs-plugin-css',
+		'text': 'systemjs-plugin-text',
+		'json': 'systemjs-plugin-json',
+		'hbs': 'getlibs/plugins/handlebars',
 
 		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2',
 		'plugin-babel': 'systemjs-plugin-babel/plugin-babel.js',
@@ -24,7 +26,11 @@ SystemJS.config({
 	meta: {
 		'*.ts': {loader: 'ts'},
 		'*.css': {loader: 'css'},
-		'*.html': {loader: 'text'}
+		'*.txt': {loader: 'text'},
+		'*.htm': {loader: 'text'},
+		'*.html': {loader: 'text'},
+		'*.json': {loader: 'json'},
+		'*.hbs': {loader: 'hbs'}
 	},
 
 	typescriptOptions: {
