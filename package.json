@@ -51,6 +51,7 @@
   "eslintConfig": {
   	"extends": "eslint:recommended",
   	"globals": {
+  	  "System": true,
   	  "SystemJS": true
   	},
   	"env": {
