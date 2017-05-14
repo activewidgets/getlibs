@@ -184,6 +184,16 @@
 
 	var cdnReady = System.import('https://api.cdnjs.com/libraries!json').then(processCDN);
 
+	var _import = System.import;
+
+	System.import = function(name, context){
+
+		function load(){
+			return _import.call(System, name, context);
+		}
+
+		return name.match(/getlibs\/loader\/json$/) ? load() : cdnReady.then(load);
+	};
 
 	document.addEventListener('DOMContentLoaded', registerModules, true);
 
