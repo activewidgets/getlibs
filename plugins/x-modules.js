@@ -147,30 +147,7 @@
 	}
 
 
-	function load(url, fn){
-
-		var xhr = new XMLHttpRequest();
-
-		xhr.open('GET', url);
-
-		xhr.onreadystatechange = function(){
-
-			if (xhr.readyState == 4){
-
-				if (xhr.responseText){
-					fn(JSON.parse(xhr.responseText));
-				}
-				else {
-					throw new Error('Cannot load file: ' + url);
-				}
-			}
-		};
-
-		xhr.send(null);
-	}
-
-
-	load('https://api.cdnjs.com/libraries', function(res){
+	function processCDN(res){
 
 		var pathRegExp = /^(.+\/ajax\/libs\/[^\/]+\/[^\/]+)\/(.+)$/;
 
@@ -202,7 +179,10 @@
 		configured = true;
 
 		init();
-	});
+	}
+
+
+	var cdnReady = System.import('https://api.cdnjs.com/libraries!json').then(processCDN);
 
 
 	document.addEventListener('DOMContentLoaded', registerModules, true);
