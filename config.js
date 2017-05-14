@@ -15,7 +15,7 @@ SystemJS.config({
 		'ts': 'plugin-typescript',
 		'css': 'systemjs-plugin-css',
 		'text': 'systemjs-plugin-text',
-		'json': 'systemjs-plugin-json',
+		'json': 'getlibs/plugins/json',
 		'hbs': 'getlibs/plugins/handlebars',
 
 		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2',

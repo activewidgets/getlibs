@@ -12,6 +12,7 @@
 	$import('cfg/inferno.js');
 	$import('cfg/react.js');
 
+	$import('plugins/json.js');
 	$import('plugins/handlebars.js');
 	$import('plugins/x-modules.js');
 
