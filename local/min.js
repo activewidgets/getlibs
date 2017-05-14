@@ -14,6 +14,7 @@
 
 	$import('plugins/json.js');
 	$import('plugins/handlebars.js');
+	$import('plugins/vue.js');
 	$import('plugins/x-modules.js');
 
 

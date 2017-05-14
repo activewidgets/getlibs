@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../../../../local/min.js"></script>
+</head>
+<body>
+	<div id="app"><span>Loading..</span></div>
+
+	<script type="x-module">
+
+		var Vue = require('vue'),
+			hello = require('./hello.vue');
+
+		new Vue(hello).$mount('#app span');
+
+	</script>
+</body>
+</html>

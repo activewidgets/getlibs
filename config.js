@@ -17,6 +17,7 @@ SystemJS.config({
 		'text': 'systemjs-plugin-text',
 		'json': 'getlibs/plugins/json',
 		'hbs': 'getlibs/plugins/handlebars',
+		'vue-loader': 'getlibs/plugins/vue',
 
 		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2',
 		'plugin-babel': 'systemjs-plugin-babel/plugin-babel.js',
@@ -30,7 +31,8 @@ SystemJS.config({
 		'*.htm': {loader: 'text'},
 		'*.html': {loader: 'text'},
 		'*.json': {loader: 'json'},
-		'*.hbs': {loader: 'hbs'}
+		'*.hbs': {loader: 'hbs'},
+		'*.vue': {loader: 'vue-loader'}
 	},
 
 	typescriptOptions: {
