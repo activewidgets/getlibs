@@ -4,6 +4,7 @@ SystemJS.config({
 	baseURL: 'https://unpkg.com/',
 
 	packages: {
+		'./': {defaultExtension: 'js'},
 		'ts': {main: 'lib/plugin.js'},
 		'typescript': {main: 'typescript.min.js', meta: {'*.js': {exports: 'ts'}}},
 		'pkg': {main: '@@', defaultExtension: '', meta: {'*': {loader: 'getlibs/loader/package'}}}
@@ -11,6 +12,8 @@ SystemJS.config({
 
 	map: {
 		'src': './src',
+		'main': './main',
+		'app': './app',
 		'vendor': './vendor',
 
 		'ts': 'plugin-typescript',
@@ -37,6 +40,7 @@ SystemJS.config({
 	},
 
 	typescriptOptions: {
+		emitDecoratorMetadata: true,
 		experimentalDecorators: true
 	},
 
@@ -46,3 +50,12 @@ SystemJS.config({
 
 	transpiler: 'plugin-babel'
 });
+
+
+SystemJS.config.ts = function(){
+	SystemJS.config({
+		packages: {
+			'./': {defaultExtension: 'ts'},
+		}
+	});
+};

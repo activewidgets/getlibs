@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="../../../local/min.js"></script>
+	<script src="../../../../local/min.js"></script>
 </head>
 <body>
 	<div id="app">Loading..</div>
 
 	<script type='x-module'>
 
-		import {Component, NgModule} from '@angular/core';
-		import {BrowserModule} from '@angular/platform-browser';
-		import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+		var Component = require('@angular/core').Component,
+			NgModule = require('@angular/core').NgModule,
+			BrowserModule = require('@angular/platform-browser').BrowserModule,
+			platformBrowserDynamic = require('@angular/platform-browser-dynamic').platformBrowserDynamic;
 
-		class Hello {
-			constructor() {
-				this.msg = 'Hello World!';
-			}
+
+		function Hello(){
+			this.msg = 'Hello World!';
 		}
 
 		Hello.annotations = [new Component({
@@ -24,7 +24,7 @@
 		})];
 
 
-		class App {}
+		function App (){}
 
 		App.annotations = [new NgModule({
 			imports: [BrowserModule],

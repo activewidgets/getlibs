@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../../../../local/min.js"></script>
+</head>
+<body>
+	<div id="app">Loading..</div>
+
+	<script type="x-module" lang="ts">
+
+		import {Component, NgModule} from '@angular/core';
+		import {BrowserModule} from '@angular/platform-browser';
+		import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
+
+		@Component({
+			selector: '#app',
+			template: '<h1>{{msg}}</h1>'
+		})
+		class Hello {
+		  msg = 'Hello World!';
+		}
+
+
+		@NgModule({
+			imports: [BrowserModule],
+			declarations: [Hello],
+			bootstrap: [Hello]
+		})
+		class App {}
+
+
+		platformBrowserDynamic().bootstrapModule(App);
+
+	</script>
+</body>
+</html>
