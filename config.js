@@ -6,6 +6,7 @@ SystemJS.config({
 	packages: {
 		'ts': {main: 'lib/plugin.js'},
 		'typescript': {main: 'typescript.min.js', meta: {'*.js': {exports: 'ts'}}},
+		'pkg': {main: '@@', defaultExtension: '', meta: {'*': {loader: 'getlibs/loader/package'}}}
 	},
 
 	map: {

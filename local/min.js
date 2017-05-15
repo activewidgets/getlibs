@@ -11,9 +11,11 @@
 	$import('cfg/ember.js');
 	$import('cfg/inferno.js');
 	$import('cfg/react.js');
+	$import('cfg/rxjs.js');
 
 	$import('plugins/json.js');
 	$import('plugins/handlebars.js');
+	$import('plugins/package.js');
 	$import('plugins/vue.js');
 	$import('plugins/x-modules.js');
 
