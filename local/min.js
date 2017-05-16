@@ -13,6 +13,8 @@
 	$import('cfg/react.js');
 	$import('cfg/rxjs.js');
 
+	$import('plugins/babel.js');
+	$import('plugins/typescript.js');
 	$import('plugins/json.js');
 	$import('plugins/handlebars.js');
 	$import('plugins/package.js');

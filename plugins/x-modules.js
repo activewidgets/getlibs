@@ -82,19 +82,6 @@
 	});
 
 
-	function preloadTranspiler(lang){
-
-		if (lang == 'ts'){
-			SystemJS.import('ts');
-			SystemJS.import('typescript');
-		}
-		else if (!lang && SystemJS.transpiler == 'plugin-babel') {
-			SystemJS.import('plugin-babel');
-			SystemJS.import('systemjs-babel-build');
-		}
-	}
-
-
 	function isDefault(name){
 		return name.match(/\.js$|[^\.\w]\w*$/);
 	}
@@ -121,10 +108,6 @@
 			}
 
 			content[full] = source;
-
-			if (lang=='ts' || (!lang && source.match(/\bimport\b|\bexport\b/))){
-				preloadTranspiler(lang);
-			}
 
 			if (isDefault(name)){
 				meta[full] = {

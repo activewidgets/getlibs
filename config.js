@@ -5,7 +5,7 @@ SystemJS.config({
 
 	packages: {
 		'./': {defaultExtension: 'js'},
-		'ts': {main: 'lib/plugin.js'},
+		'plugin-typescript': {main: 'lib/plugin.js'},
 		'typescript': {main: 'typescript.min.js', meta: {'*.js': {exports: 'ts'}}},
 		'pkg': {main: '@@', defaultExtension: '', meta: {'*': {loader: 'getlibs/loader/package'}}}
 	},
@@ -16,7 +16,7 @@ SystemJS.config({
 		'app': './app',
 		'vendor': './vendor',
 
-		'ts': 'plugin-typescript',
+		'ts': 'getlibs/plugins/typescript',
 		'css': 'systemjs-plugin-css',
 		'text': 'systemjs-plugin-text',
 		'json': 'getlibs/plugins/json',
@@ -48,7 +48,7 @@ SystemJS.config({
 		react: true
 	},
 
-	transpiler: 'plugin-babel'
+	transpiler: 'getlibs/plugins/babel'
 });
 
 
