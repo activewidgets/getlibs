@@ -19,6 +19,7 @@
 	$import('plugins/handlebars.js');
 	$import('plugins/package.js');
 	$import('plugins/vue.js');
+	$import('plugins/cdn.js');
 	$import('plugins/x-modules.js');
 
 
