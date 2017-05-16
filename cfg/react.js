@@ -2,12 +2,12 @@
 SystemJS.config({
 
 	packages: {
-		'react': {main: 'dist/react.min.js'},
-		'react-dom': {main: 'dist/react-dom.min.js'}
+		'react': {main: 'react', defaultExtension: 'min.js'}
 	},
 
 	map: {
-		'react': 'https://unpkg.com/react'
+		'react': 'cdn:react',
+		'react-dom': 'cdn:react/react-dom'
 	}
 });
 

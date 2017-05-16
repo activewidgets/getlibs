@@ -13,6 +13,6 @@ SystemJS.config({
 	},
 
 	map: {
-		'rxjs': 'https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.0'
+		'rxjs': 'cdn:rxjs'
 	}
 });

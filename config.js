@@ -23,7 +23,7 @@ SystemJS.config({
 		'hbs': 'getlibs/plugins/handlebars',
 		'vue-loader': 'getlibs/plugins/vue',
 
-		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2',
+		'typescript': 'cdn:typescript',
 		'plugin-babel': 'systemjs-plugin-babel/plugin-babel.js',
 		'systemjs-babel-build': 'systemjs-plugin-babel/systemjs-babel-browser.js'
 	},
