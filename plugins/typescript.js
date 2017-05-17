@@ -1,7 +1,7 @@
 
 SystemJS.amdDefine('getlibs/plugins/typescript', [], function(){
 
-	function babel(loader, load, traceOpts){
+	function typescript(loader, load, traceOpts){
 		return System.import('plugin-typescript').then(function(plugin){
 			return plugin.translate.call(loader, load, traceOpts);
 		});
@@ -21,12 +21,36 @@ SystemJS.amdDefine('getlibs/plugins/typescript', [], function(){
 			return localStorage.getItem(transpiledKey);
 		}
 
-		return babel(this, load, traceOpts).then(function(transpiled){
+		scan(load);
+
+		return typescript(this, load, traceOpts).then(function(transpiled){
 			localStorage.setItem(sourceKey, source);
 			localStorage.setItem(transpiledKey, transpiled);
 			localStorage.setItem(sourceMapKey, JSON.stringify(load.metadata.sourceMap));
 			return transpiled;
 		});
+	}
+
+
+	function scan(load){
+
+		var source = load.source;
+
+		if (source.indexOf('@angular') >= 0) {
+			angular(load);
+		}
+	}
+
+
+	function angular(load){
+
+		var reTemplateUrl = /(\btemplateUrl\s*:\s*['"`])(\..*?)([`"'])/g;
+
+		if (load.source.indexOf('moduleId') == -1) {
+			load.source = load.source.replace(reTemplateUrl, function(match, before, url, after){
+				return before + System.resolveSync(url, load.address) + after;
+			});
+		}
 	}
 
 
