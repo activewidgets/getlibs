@@ -18,7 +18,7 @@ exports.config = {
     sync: true,
     logLevel: 'silent',
     coloredLogs: true,
-    bail: 0,
+    bail: 5,
     baseUrl: 'http://localhost',
     waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
@@ -27,13 +27,14 @@ exports.config = {
 
 	staticServerPort: 4567,
     staticServerFolders: [
+    	{ mount: '/node_modules', path: './node_modules' },
     	{ mount: '/examples', path: './examples' },
     	{ mount: '/local', path: './' }
     ],
 
     framework: 'mocha',
     reporters: ['spec'],
-    mochaOpts: {ui: 'bdd'},
+    mochaOpts: {ui: 'bdd', timeout: 20000},
 
 	before: function (capabilities, specs) {
     	global.localhost = 'http://localhost:4567/';
