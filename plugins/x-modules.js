@@ -5,36 +5,37 @@
 
 	var content = {}, loaders = {'default': defaultLoader};
 
-	function localfetch(load, fetch){
 
-		var name = String(load.name).replace(/!.+$/,'');
+	function tagLoader(arg){
 
-		if (content[name]){
-			load.source = content[name];
-			return content[name];
-		}
+		var base = arg || {},
+			loader = {};
 
-		var base = Object.getPrototypeOf(this);
+		Object.keys(base).forEach(function(i){
+			loader[i] = base[i];
+		});
 
-		if (base.fetch){
-			return base.fetch.apply(this, arguments);
-		}
+		loader.fetch = function(load, fetch){
 
-		return fetch(load);
-	}
+			var name = load.address;
 
-	SystemJS.amdDefine(defaultLoader, [], function(){
-		return {
-			fetch: localfetch
+			if (content[name]){
+				load.source = content[name];
+				return content[name];
+			}
+
+			if (base.fetch){
+				return base.fetch.apply(this, arguments);
+			}
+
+			return fetch(load);
 		};
-	});
 
-
-	function tagLoader(base){
-		var loader = Object.create(base);
-		loader.fetch = localfetch;
 		return loader;
 	}
+
+
+	SystemJS.amdDefine(defaultLoader, [], tagLoader);
 
 
 	function registerLoader(name){
