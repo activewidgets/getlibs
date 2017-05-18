@@ -64,7 +64,31 @@ SystemJS.amdDefine('getlibs/plugins/typescript', [], function(){
 	}
 
 
+	function fetch(load, defaultFetch){
+
+		return defaultFetch(load).catch(function(err){
+
+			var address = load.address,
+				index = address.replace(/\.ts$/, '/index.ts'),
+				source = 'export * from' + JSON.stringify(index);
+
+			function redirect(){
+				load.source = source;
+				return source;
+			}
+
+			if (address.match(/\.ts$/) && !address.match(/index\.ts$/)){
+				return System.import(index).then(redirect);
+			}
+
+			throw err;
+		});
+
+	}
+
+
 	return {
+		fetch: fetch,
 		translate: translate
 	};
 });
