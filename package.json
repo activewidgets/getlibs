@@ -18,6 +18,7 @@
     "build": "gulp"
   },
   "devDependencies": {
+    "ang2-conduit": "git+https://github.com/gothinkster/angular-realworld-example-app.git",
     "chai": "^3.5.0",
     "es6-promise": "^4.1.0",
     "express": "^4.0.0",
@@ -49,14 +50,14 @@
     "url": "https://github.com/activewidgets/getlibs/issues"
   },
   "eslintConfig": {
-  	"extends": "eslint:recommended",
-  	"globals": {
-  	  "System": true,
-  	  "SystemJS": true
-  	},
-  	"env": {
-  	  "browser": true
-  	}
+    "extends": "eslint:recommended",
+    "globals": {
+      "System": true,
+      "SystemJS": true
+    },
+    "env": {
+      "browser": true
+    }
   },
   "homepage": "http://getlibs.com"
 }
