@@ -44,12 +44,22 @@ SystemJS.amdDefine('getlibs/plugins/typescript', [], function(){
 
 	function angular(load){
 
-		var reTemplateUrl = /(\btemplateUrl\s*:\s*['"`])(\..*?)([`"'])/g;
+		var reTemplateUrl = /(\btemplateUrl\s*:\s*['"`])(\..*?)([`"'])/g,
+			reStyleUrls = /(\bstyleUrls\s*:\s*\[)([^\]]*?)(\])/g,
+			reUrl = /(['"`])(\..*?)([`"'])/g;
+
+		function absoluteUrl(match, before, url, after){
+			return before + System.resolveSync(url, load.address) + after;
+		}
+
+		function styleUrls(match, before, urls, after){
+			return before + urls.replace(reUrl, absoluteUrl) + after;
+		}
 
 		if (load.source.indexOf('moduleId') == -1) {
-			load.source = load.source.replace(reTemplateUrl, function(match, before, url, after){
-				return before + System.resolveSync(url, load.address) + after;
-			});
+			load.source = load.source
+				.replace(reTemplateUrl, absoluteUrl)
+				.replace(reStyleUrls, styleUrls);
 		}
 	}
 
