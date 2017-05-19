@@ -19,7 +19,7 @@ SystemJS.config({
 		'vendor': './vendor',
 
 		'js': 'getlibs/plugins/js!getlibs/plugins/scan!getlibs/plugins/index',
-		'ts': 'getlibs/plugins/typescript',
+		'ts': 'plugin-typescript!getlibs/plugins/cached!getlibs/plugins/scan!getlibs/plugins/index',
 		'css': 'systemjs-plugin-css',
 		'text': 'systemjs-plugin-text',
 		'json': 'getlibs/plugins/json',

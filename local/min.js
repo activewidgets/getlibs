@@ -17,7 +17,6 @@
 	$import('plugins/index.js');
 	$import('plugins/scan.js');
 	$import('plugins/js.js');
-	$import('plugins/typescript.js');
 	$import('plugins/json.js');
 	$import('plugins/handlebars.js');
 	$import('plugins/package.js');

@@ -9,19 +9,17 @@ SystemJS.amdDefine('getlibs/plugins/cached', [], function(){
 
 	function instantiate(base){
 
-		var name = base.address.replace(/^.+\//, '').replace(/\.\w+$/, '');
-
 		function transpiler(loader, load, traceOpts){
-			return System.import(name).then(function(plugin){
+			return System.import(base.address).then(function(plugin){
 				return plugin.translate.call(loader, load, traceOpts);
 			});
 		}
-
 
 		function translate(load, traceOpts){
 
 			var source = load.source,
 				address = load.address,
+				name = base.address.replace(/^.+(plugin-\w+).+$/, '$1'),
 				sourceKey = 'getlibs\t' + name + '\tsource\t' + address,
 				transpiledKey = 'getlibs\t' + name + '\ttranspiled\t' + address,
 				sourceMapKey = 'getlibs\t' + name + '\tsourcemap\t' + address;
