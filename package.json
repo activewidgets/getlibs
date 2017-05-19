@@ -52,6 +52,7 @@
   "eslintConfig": {
     "extends": "eslint:recommended",
     "globals": {
+      "Promise": true,
       "System": true,
       "SystemJS": true
     },

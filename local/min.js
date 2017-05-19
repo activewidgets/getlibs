@@ -14,6 +14,8 @@
 	$import('cfg/rxjs.js');
 
 	$import('plugins/cached.js');
+	$import('plugins/index.js');
+	$import('plugins/js.js');
 	$import('plugins/typescript.js');
 	$import('plugins/json.js');
 	$import('plugins/handlebars.js');
