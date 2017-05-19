@@ -18,7 +18,7 @@ SystemJS.config({
 		'app': './app',
 		'vendor': './vendor',
 
-		'js': 'getlibs/plugins/js!getlibs/plugins/index',
+		'js': 'getlibs/plugins/js!getlibs/plugins/scan!getlibs/plugins/index',
 		'ts': 'getlibs/plugins/typescript',
 		'css': 'systemjs-plugin-css',
 		'text': 'systemjs-plugin-text',

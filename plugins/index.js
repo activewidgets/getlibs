@@ -3,7 +3,14 @@ SystemJS.amdDefine('getlibs/plugins/index', [], function(){
 
 	function build(base){
 
-		function fetch(load, defaultFetch){
+		var loader = {};
+
+		Object.keys(base).forEach(function(i){
+			loader[i] = base[i];
+		});
+
+
+		loader.fetch = function(load, defaultFetch){
 
 			function proceed(source){
 				load.source = source;
@@ -38,9 +45,7 @@ SystemJS.amdDefine('getlibs/plugins/index', [], function(){
 			return Promise.resolve(result).then(proceed, retry);
 		}
 
-		return {
-			fetch: fetch
-		};
+		return loader;
 	}
 
 

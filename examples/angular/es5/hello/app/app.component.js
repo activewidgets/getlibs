@@ -7,7 +7,7 @@ function AppComponent(){
 
 AppComponent.annotations = [new Component({
 	selector: '#app',
-	template: '<h1>{{msg}}</h1>'
+	templateUrl: './app.component.html'
 })];
 
 exports.AppComponent = AppComponent;
