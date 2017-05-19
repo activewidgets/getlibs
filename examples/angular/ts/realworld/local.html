@@ -11,19 +11,11 @@
 
 </head>
 <body>
-  <app-root>Loading...</app-root>
+	<app-root>Loading...</app-root>
 
-  <script src="../../../../local/min.js"></script>
-
-  <script>
-
-	System.config({
-		packages: {realworld: {defaultExtension: 'ts'}},
-		map: {realworld: '../../../../node_modules/ang2-conduit/src'}
-	});
-
-    System.import('realworld/main');
-
-  </script>
+	<script src="../../../../local/min.js"></script>
+	<script>
+		System.import('../../../../node_modules/ang2-conduit/src/main.ts');
+	</script>
 </body>
 </html>

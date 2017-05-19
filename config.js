@@ -13,6 +13,8 @@ SystemJS.config({
 	map: {
 		'src': './src',
 		'main': './main',
+		'main.js': './main.js',
+		'main.ts': './main.ts',
 		'app': './app',
 		'vendor': './vendor',
 
@@ -52,10 +54,31 @@ SystemJS.config({
 });
 
 
-SystemJS.config.ts = function(){
-	SystemJS.config({
-		packages: {
-			'./': {defaultExtension: 'ts'},
+
+(function(){
+
+	// intercept System.import() for typescript auto config
+
+	function applyTypescript(url){
+
+		var packages = {},
+			base = System.resolveSync(url);
+
+		if (!System.resolveSync('./aaaa', base).match(/\.ts$/)){
+			packages[System.resolveSync('.', base)] = {defaultExtension: 'ts'};
+			System.config({packages: packages});
 		}
-	});
-};
+	}
+
+	var _import = System.import;
+
+	System.import = function(url){
+
+		if (String(url).match(/^[^!]+\.ts$/) && arguments.length == 1){
+			applyTypescript(url);
+		}
+
+		return _import.apply(this, arguments);
+	};
+
+})();

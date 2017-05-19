@@ -66,10 +66,13 @@
 
 	var _import = System.import;
 
-	System.import = function(name, context){
+	System.import = function(name){
+
+		var self = this,
+			args = arguments;
 
 		function load(){
-			return _import.call(System, name, context);
+			return _import.apply(self, args);
 		}
 
 		return name.match(/getlibs\/(loader|plugins)\/json$/) ? load() : cdnReady.then(load);

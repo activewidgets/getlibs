@@ -11,18 +11,11 @@
 
 </head>
 <body>
-  <app-root>Loading from gothinkster/angular-realworld-example-app ...</app-root>
+	<app-root>Loading from github source, this may take some time ...</app-root>
 
-  <script src="../../../../local/min.js"></script>
-  <script>
-
-	System.config({
-		packages: {realworld: {defaultExtension: 'ts'}},
-		map: {realworld: 'https://cdn.rawgit.com/gothinkster/angular-realworld-example-app/7404b5dd841ec800fac33eb9b74940f8777621e9/src'}
-	});
-
-    System.import('realworld/main');
-
-  </script>
+	<script src="../../../../local/min.js"></script>
+	<script>
+		System.import('https://cdn.rawgit.com/gothinkster/angular-realworld-example-app/7404b5dd841ec800fac33eb9b74940f8777621e9/src/main.ts');
+	</script>
 </body>
 </html>
