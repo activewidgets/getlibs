@@ -50,7 +50,7 @@ SystemJS.config({
 		react: true
 	},
 
-	transpiler: 'getlibs/plugins/babel'
+	transpiler: 'plugin-babel!getlibs/plugins/cached'
 });
 
 
