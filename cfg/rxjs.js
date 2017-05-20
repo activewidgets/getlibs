@@ -10,5 +10,9 @@ SystemJS.config({
 			'Rx.js': {loader: 'cdnjs'},
 			'*': {loader: 'pkg'}
 		}}
+	},
+
+	map: {
+		'rxjs': '@cdnjs/rxjs'
 	}
 });

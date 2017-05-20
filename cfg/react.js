@@ -2,7 +2,8 @@
 SystemJS.config({
 
 	map: {
-		'react-dom': 'react/react-dom'
+		'react': '@cdnjs/react',
+		'react-dom': '@cdnjs/react/react-dom'
 	}
 });
 

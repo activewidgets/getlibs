@@ -34,6 +34,9 @@ SystemJS.config({
 	},
 
 	meta: {
+
+		'@cdnjs/*': {loader: 'cdnjs'},
+
 		'*.js': {loader: 'js'},
 		'*.ts': {loader: 'ts'},
 		'*.css': {loader: 'css'},
