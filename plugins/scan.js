@@ -6,7 +6,8 @@ SystemJS.amdDefine('getlibs/plugins/scan', [], function(){
 
 		var reTemplateUrl = /(\btemplateUrl\s*:\s*['"`])(\..*?)([`"'])/g,
 			reStyleUrls = /(\bstyleUrls\s*:\s*\[)([^\]]*?)(\])/g,
-			reUrl = /(['"`])(\..*?)([`"'])/g;
+			reUrl = /(['"`])(\..*?)([`"'])/g,
+			source = String(load.source);
 
 		function absoluteUrl(match, before, url, after){
 			return before + System.resolveSync(url, load.address) + after;
@@ -16,17 +17,26 @@ SystemJS.amdDefine('getlibs/plugins/scan', [], function(){
 			return before + urls.replace(reUrl, absoluteUrl) + after;
 		}
 
-		if (load.source.indexOf('moduleId') == -1) {
-			load.source = load.source
-				.replace(reTemplateUrl, absoluteUrl)
-				.replace(reStyleUrls, styleUrls);
+		if (source.indexOf('moduleId') == -1) {
+			load.source = source.replace(reTemplateUrl, absoluteUrl).replace(reStyleUrls, styleUrls);
+		}
+	}
+
+
+	function scan(load){
+
+		var source = String(load.source);
+
+		if (source.indexOf('@angular') >= 0) {
+			angular(load);
 		}
 	}
 
 
 	function build(base){
 
-		var loader = {};
+		var loader = {},
+			baseURL = SystemJS.baseURL;
 
 		Object.keys(base).forEach(function(i){
 			loader[i] = base[i];
@@ -34,10 +44,8 @@ SystemJS.amdDefine('getlibs/plugins/scan', [], function(){
 
 		loader.translate = function(load){
 
-			var source = load.source;
-
-			if (source.indexOf('@angular') >= 0) {
-				angular(load);
+			if (String(load.address).substr(0, baseURL.length) != baseURL){
+				scan(load);
 			}
 
 			return base.translate ? base.translate(load) : load.source;
