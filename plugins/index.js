@@ -27,13 +27,9 @@ SystemJS.amdDefine('getlibs/plugins/index', [], function(){
 						'export * from' + path :
 						'module.exports = require(' + path + ')';
 
-				function redirect(){
+				if (address.match(/\.(ts|js)$/) && !address.match(/index\.(ts|js)$/)){
 					load.source = source;
 					return source;
-				}
-
-				if (address.match(/\.(ts|js)$/) && !address.match(/index\.(ts|js)$/)){
-					return System.import(index).then(redirect);
 				}
 
 				throw err;
