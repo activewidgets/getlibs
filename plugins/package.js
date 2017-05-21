@@ -20,7 +20,7 @@ SystemJS.amdDefine('getlibs/loader/package', [], function(){
 	}
 
 
-	function property(address){
+	function property(address, loadAddress){
 
 		return function(value){
 
@@ -28,6 +28,10 @@ SystemJS.amdDefine('getlibs/loader/package', [], function(){
 
 			if (path == '@@'){
 				return value;
+			}
+
+			if (path == '*'){
+				path = loadAddress.replace(/^.+\/(\w+)\.js$/, '$1');
 			}
 
 			path &&	path.split('.').forEach(function(name){
@@ -38,11 +42,11 @@ SystemJS.amdDefine('getlibs/loader/package', [], function(){
 		};
 	}
 
-	function instantiate(xyz){
+	function instantiate(plugin){
 		return {
 			fetch: fetch,
 			instantiate: function(load){
-				return System.import(package(load.address)).then(property(xyz.address));
+				return System.import(package(load.address)).then(property(plugin.address, load.address));
 			}
 		};
 	}

@@ -10,6 +10,7 @@
 	$import('cfg/aurelia.js');
 	$import('cfg/ember.js');
 	$import('cfg/inferno.js');
+	$import('cfg/lodash.js');
 	$import('cfg/react.js');
 	$import('cfg/rxjs.js');
 

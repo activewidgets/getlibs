@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../../../local/min.js"></script>
+</head>
+<body>
+	<div id="app">Loading..</div>
+
+	<script type="x-module">
+
+		var template = require('lodash/template'),
+			render = template('<h1><%= msg %></h1>'),
+			data = {msg: 'Hello World!'};
+
+		document.getElementById('app').innerHTML = render(data);
+
+	</script>
+</body>
+</html>
