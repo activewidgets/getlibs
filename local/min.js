@@ -8,11 +8,13 @@
 	$import('cfg/activewidgets.js');
 	$import('cfg/angular2.js');
 	$import('cfg/aurelia.js');
+	$import('cfg/core.js');
 	$import('cfg/ember.js');
 	$import('cfg/inferno.js');
 	$import('cfg/lodash.js');
 	$import('cfg/react.js');
 	$import('cfg/rxjs.js');
+	$import('cfg/zone.js');
 
 	$import('plugins/json.js');
 	$import('plugins/cdnjs.js');
