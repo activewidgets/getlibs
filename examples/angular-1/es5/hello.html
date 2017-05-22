@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<script src="../../../local/min.js"></script>
+</head>
+<body ng-controller="hello">
+
+	<message id="app">Loading..</message>
+
+	<script type="x-module">
+
+		var angular = require('angular'),
+			app = angular.module("app", []);
+
+		app.controller("hello", function($scope) {
+			$scope.msg = "Hello World!";
+		});
+
+		app.directive('message', function(){return {
+			template: '<h1>{{msg}}</h1>'
+		}});
+
+	</script>
+</body>
+</html>

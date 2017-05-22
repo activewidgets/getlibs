@@ -6,7 +6,8 @@
 	$import('config.js');
 
 	$import('cfg/activewidgets.js');
-	$import('cfg/angular2.js');
+	$import('cfg/angular.js');
+	$import('cfg/angular-1.js');
 	$import('cfg/aurelia.js');
 	$import('cfg/core.js');
 	$import('cfg/ember.js');
