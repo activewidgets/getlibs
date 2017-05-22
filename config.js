@@ -41,6 +41,7 @@ SystemJS.config({
 		'*.ts': {loader: 'ts'},
 		'*.css': {loader: 'css'},
 		'*.txt': {loader: 'text'},
+		'*.tpl': {loader: 'text'},
 		'*.htm': {loader: 'text'},
 		'*.html': {loader: 'text'},
 		'*.json': {loader: 'json'},
