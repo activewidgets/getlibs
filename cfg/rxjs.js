@@ -13,6 +13,7 @@ SystemJS.config({
 	},
 
 	map: {
-		'rxjs': '@cdnjs/rxjs'
+		'rxjs': '@cdnjs/@reactivex/rxjs',
+		'@reactivex/rxjs': '@cdnjs/@reactivex/rxjs'
 	}
 });
