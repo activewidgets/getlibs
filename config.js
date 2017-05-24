@@ -14,7 +14,7 @@ SystemJS.config({
 		'app': './app',
 
 		'js': 'getlibs/plugins/js!getlibs/plugins/scan!getlibs/plugins/index',
-		'ts': 'plugin-typescript!getlibs/plugins/cached!getlibs/plugins/scan!getlibs/plugins/index',
+		'ts': 'getlibs/plugins/plugin-typescript!getlibs/plugins/cached!getlibs/plugins/scan!getlibs/plugins/index',
 		'css': 'systemjs-plugin-css',
 		'text': 'systemjs-plugin-text',
 		'json': 'getlibs/plugins/json',
@@ -45,6 +45,8 @@ SystemJS.config({
 	},
 
 	typescriptOptions: {
+		module: 'system',
+		sourceMap: true,
 		emitDecoratorMetadata: true,
 		experimentalDecorators: true
 	},

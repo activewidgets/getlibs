@@ -1,6 +1,15 @@
 
 SystemJS.amdDefine('getlibs/plugins/scan', [], function(){
 
+	var angularPreloaded;
+
+	function preload(items){
+		if (items.length){
+			System.import(items.shift()).then(function(){
+				preload(items);
+			});
+		}
+	}
 
 	function angular(load){
 
@@ -8,6 +17,22 @@ SystemJS.amdDefine('getlibs/plugins/scan', [], function(){
 			reStyleUrls = /(\bstyleUrls\s*:\s*\[)([^\]]*?)(\])/g,
 			reUrl = /(['"`])(\..*?)([`"'])/g,
 			source = String(load.source);
+
+		if (source.indexOf('@angular/platform-browser-dynamic') >= 0 && !angularPreloaded) {
+
+			angularPreloaded = true;
+
+			preload([
+				'core-js',
+				'zone.js',
+				'rxjs',
+				'@angular/core',
+				'@angular/common',
+				'@angular/compiler',
+				'@angular/platform-browser',
+				'@angular/platform-browser-dynamic'
+			]);
+		}
 
 		function absoluteUrl(match, before, url, after){
 			return before + System.resolveSync(url, load.address) + after;
