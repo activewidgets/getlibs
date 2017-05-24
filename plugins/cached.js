@@ -9,6 +9,8 @@ SystemJS.amdDefine('getlibs/plugins/cached', [], function(){
 
 	function instantiate(base){
 
+		var transpilerLoaded;
+
 		function transpiler(loader, load, traceOpts){
 			return System.import(base.address).then(function(plugin){
 				return plugin.translate.call(loader, load, traceOpts);
@@ -23,6 +25,11 @@ SystemJS.amdDefine('getlibs/plugins/cached', [], function(){
 				sourceKey = 'getlibs\t' + name + '\tsource\t' + address,
 				transpiledKey = 'getlibs\t' + name + '\ttranspiled\t' + address,
 				sourceMapKey = 'getlibs\t' + name + '\tsourcemap\t' + address;
+
+			if (!transpilerLoaded && address.match(/\.ts$/)){
+				System.import(base.address);
+				transpilerLoaded = true;
+			}
 
 			if (localStorage.getItem(sourceKey) === source){
 				load.metadata.sourceMap = JSON.parse(localStorage.getItem(sourceMapKey));
