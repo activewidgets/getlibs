@@ -8,9 +8,10 @@ SystemJS.amdDefine('getlibs/utils/worker', [], function(){
 
 		self.onmessage = function(event){
 
-			var request = JSON.parse(event.data);
-
 			try {
+				var request = {};
+				request = JSON.parse(event.data);
+
 				port.postMessage(JSON.stringify({
 					id: request.id,
 					result: self[request.method].apply(self, request.args)
@@ -19,7 +20,10 @@ SystemJS.amdDefine('getlibs/utils/worker', [], function(){
 			catch(err){
 				port.postMessage(JSON.stringify({
 					id: request.id,
-					error: err
+					error: {
+						message: err.message + ' (worker)',
+						stack: err.stack
+					}
 				}));
 			}
 		};
@@ -54,29 +58,55 @@ SystemJS.amdDefine('getlibs/utils/worker', [], function(){
 	return function(scripts){
 
 		var serial = 0,
-			tasks = [];
+			tasks = [],
+			error = null;
 
 
 		var worker = createWorker(scripts);
 
 
+		function handleError(err){
+
+			error = err;
+
+			tasks.forEach(function(task, i){
+				if (task) {
+					tasks[i] = null;
+					task.failure(err);
+				}
+			});
+		}
+
+		worker.onerror = function(event){
+			handleError(new Error(event.message, event.filename, event.lineno));
+		};
+
+
 		worker.onmessage = function(e){
+			try {
+				var msg = JSON.parse(e.data),
+					task = tasks[msg.id];
 
-			var msg = JSON.parse(e.data),
-				task = tasks[msg.id];
+				tasks[msg.id] = null;
 
-			tasks[msg.id] = null;
-
-			if (msg.error) {
-				task.failure(msg.error);
+				if (msg.error) {
+					task.failure(msg.error);
+				}
+				else {
+					task.success(msg.result);
+				}
 			}
-			else {
-				task.success(msg.result);
+			catch(err){
+				handleError(err);
 			}
 		};
 
 
 		this.call = function(method){
+
+			if (error){
+				return Promise.reject(error);
+			}
 
 			var i, args = [], id = ++serial;
 
