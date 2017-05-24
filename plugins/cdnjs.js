@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/cdnjs', [], function(){
+SystemJS.amdDefine('getlibs/plugins/cdnjs', ['getlibs/plugins/preload'], function(preload){
 
 	var ready = System.import('https://api.cdnjs.com/libraries!json').then(function(response){
 
@@ -17,7 +17,8 @@ SystemJS.amdDefine('getlibs/plugins/cdnjs', [], function(){
 
 		return ready.then(function(libs){
 
-			var address = load.address.replace(SystemJS.baseURL + '@cdnjs/', ''),
+			var original = load.address,
+				address = load.address.replace(SystemJS.baseURL + '@cdnjs/', ''),
 				name = address.replace(/^([^@\/]+|@[^\/]+\/[^\/]+)(.*)$/, '$1'),
 				file = RegExp.$2,
 				latest = libs[name].latest;
@@ -38,7 +39,7 @@ SystemJS.amdDefine('getlibs/plugins/cdnjs', [], function(){
 				return load.source;
 			}
 
-			return defaultFetch(load).then(function(source){
+			return defaultFetch(load).then(preload(original)).then(function(source){
 				load.source = source;
 				return source;
 			});

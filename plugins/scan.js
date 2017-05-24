@@ -3,14 +3,6 @@ SystemJS.amdDefine('getlibs/plugins/scan', [], function(){
 
 	var angularPreloaded;
 
-	function preload(items){
-		if (items.length){
-			System.import(items.shift()).then(function(){
-				preload(items);
-			});
-		}
-	}
-
 	function angular(load){
 
 		var reTemplateUrl = /(\btemplateUrl\s*:\s*['"`])(\..*?)([`"'])/g,
@@ -18,18 +10,18 @@ SystemJS.amdDefine('getlibs/plugins/scan', [], function(){
 			reUrl = /(['"`])(\..*?)([`"'])/g,
 			source = String(load.source);
 
-		if (source.indexOf('@angular/platform-browser-dynamic') >= 0 && !angularPreloaded) {
+		if (!angularPreloaded && source.indexOf('@angular/platform-browser-dynamic') >= 0){
 
 			angularPreloaded = true;
 
-			preload([
+			SystemJS.config.preload([
 				'core-js',
 				'zone.js',
 				'rxjs',
 				'@angular/core',
 				'@angular/common',
-				'@angular/compiler',
 				'@angular/platform-browser',
+				'@angular/compiler',
 				'@angular/platform-browser-dynamic'
 			]);
 		}

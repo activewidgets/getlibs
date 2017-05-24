@@ -18,6 +18,7 @@
 	$import('cfg/zone.js');
 
 	$import('plugins/json.js');
+	$import('plugins/preload.js');
 	$import('plugins/cdnjs.js');
 	$import('plugins/cached.js');
 	$import('plugins/index.js');
