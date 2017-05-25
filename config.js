@@ -4,7 +4,7 @@ SystemJS.config({
 	baseURL: 'https://unpkg.com/',
 
 	packages: {
-		'plugin-typescript': {main: 'lib/plugin.js'},
+		'babel-standalone': {main: 'babel.min.js'},
 		'typescript': {main: 'typescript.min.js', meta: {'*': {exports: 'ts'}}},
 		'pkg': {main: '@@', defaultExtension: '', meta: {'*': {loader: 'getlibs/loader/package'}}}
 	},
@@ -23,9 +23,8 @@ SystemJS.config({
 
 		'cdnjs': 'getlibs/plugins/cdnjs',
 
-		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2',
-		'plugin-babel': 'systemjs-plugin-babel/plugin-babel.js',
-		'systemjs-babel-build': 'systemjs-plugin-babel/systemjs-babel-browser.js'
+		'babel-standalone': 'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.2',
+		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2'
 	},
 
 	meta: {
@@ -52,8 +51,10 @@ SystemJS.config({
 	},
 
 	babelOptions: {
-		react: true
+		sourceMap: true,
+		presets: ['es2015', 'react'],
+		plugins: ['transform-es2015-modules-systemjs']
 	},
 
-	transpiler: 'plugin-babel!getlibs/plugins/cached'
+	transpiler: 'getlibs/plugins/plugin-babel!getlibs/plugins/cached'
 });

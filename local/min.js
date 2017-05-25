@@ -25,6 +25,7 @@
 	$import('plugins/scan.js');
 	$import('plugins/worker.js');
 	$import('plugins/js.js');
+	$import('plugins/babel.js');
 	$import('plugins/typescript.js');
 	$import('plugins/handlebars.js');
 	$import('plugins/package.js');
