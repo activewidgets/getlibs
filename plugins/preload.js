@@ -1,20 +1,7 @@
 
 SystemJS.amdDefine('getlibs/plugins/preload', [], function(){
 
-	var map = {};
-
-	SystemJS.config.preload = function(items){
-
-		var i, prev, item;
-
-		for(i=0; i<items.length; i++){
-			item = System.normalizeSync(items[i]);
-			map[item] = prev;
-			prev = item;
-			System.import(item);
-		}
-	};
-
+	var map = System.preload.map;
 
 	var defer = function(fn){
 		var channel = new MessageChannel();
@@ -50,3 +37,18 @@ SystemJS.amdDefine('getlibs/plugins/preload', [], function(){
 		};
 	};
 });
+
+
+System.preload = function(items){
+
+	var i, prev, item, map = System.preload.map;
+
+	for(i=0; i<items.length; i++){
+		item = System.normalizeSync(items[i]);
+		map[item] = prev;
+		prev = item;
+		System.import(item);
+	}
+};
+
+System.preload.map = {};

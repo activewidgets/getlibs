@@ -14,7 +14,7 @@ SystemJS.amdDefine('getlibs/plugins/scan', [], function(){
 
 			angularPreloaded = true;
 
-			SystemJS.config.preload([
+			System.preload([
 				'core-js',
 				'zone.js',
 				'rxjs',
