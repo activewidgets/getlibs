@@ -14,7 +14,7 @@ SystemJS.config({
 		'app': './app',
 
 		'js': 'getlibs/plugins/js!getlibs/plugins/scan!getlibs/plugins/index',
-		'ts': 'getlibs/plugins/plugin-typescript!getlibs/plugins/cached!getlibs/plugins/scan!getlibs/plugins/index',
+		'ts': 'getlibs/plugins/typescript!getlibs/plugins/cached!getlibs/plugins/scan!getlibs/plugins/index',
 		'css': 'systemjs-plugin-css',
 		'text': 'systemjs-plugin-text',
 		'json': 'getlibs/plugins/json',
@@ -56,5 +56,5 @@ SystemJS.config({
 		plugins: ['transform-es2015-modules-systemjs']
 	},
 
-	transpiler: 'getlibs/plugins/plugin-babel!getlibs/plugins/cached'
+	transpiler: 'getlibs/plugins/babel!getlibs/plugins/cached'
 });

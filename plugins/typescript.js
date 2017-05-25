@@ -1,12 +1,11 @@
 ﻿
-SystemJS.amdDefine('getlibs/plugins/plugin-typescript', ['getlibs/utils/worker'], function(WebWorker){
+SystemJS.amdDefine('getlibs/plugins/typescript', ['getlibs/utils/worker'], function(WebWorker){
 
 	function transpiler(){
 
 		self.translate = function(address, source, options) {
 
 			/* global ts */
-
 			return ts.transpileModule(source, {
 				compilerOptions: options,
 				moduleName: address,

@@ -21,7 +21,7 @@ SystemJS.amdDefine('getlibs/plugins/cached', [], function(){
 
 			var source = load.source,
 				address = load.address,
-				name = base.address.replace(/^.+(plugin-\w+).+$/, '$1'),
+				name = base.address.replace(/^.+plugins.(.+)/, '$1'),
 				sourceKey = 'getlibs\t' + name + '\tsource\t' + address,
 				transpiledKey = 'getlibs\t' + name + '\ttranspiled\t' + address,
 				sourceMapKey = 'getlibs\t' + name + '\tsourcemap\t' + address;
