@@ -13,7 +13,7 @@ SystemJS.amdDefine('getlibs/plugins/cdnjs', ['getlibs/plugins/preload'], functio
 	});
 
 
-	function fetch(load, defaultFetch){
+	function fetch(load){
 
 		return ready.then(function(libs){
 
@@ -34,15 +34,20 @@ SystemJS.amdDefine('getlibs/plugins/cdnjs', ['getlibs/plugins/preload'], functio
 				load.address = latest.replace(/^(.+\/ajax\/libs\/[^\/]+\/[^\/]+)\/.+$/, '$1') + file;
 			}
 
-			if (!load.address.match(/\.js$/)){
-				load.source = 'module.exports = require(' + JSON.stringify(load.address) + ')';
+			load.source = 'module.exports = require(' + JSON.stringify(load.address) + ')';
+
+
+			var map = System.preload.map,
+				prev = map[original];
+
+			if (!prev) {
 				return load.source;
 			}
 
-			return defaultFetch(load).then(preload(original)).then(function(source){
-				load.source = source;
-				return source;
-			});
+			map[load.address] = prev;
+			map[original] = load.address;
+
+			return Promise.resolve(load.source).then(preload(original));
 		});
 	}
 
