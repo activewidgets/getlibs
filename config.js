@@ -52,7 +52,7 @@ SystemJS.config({
 
 	babelOptions: {
 		sourceMap: true,
-		presets: ['es2015', 'react'],
+		presets: ['es2015', 'stage-3', 'stage-2', 'react'],
 		plugins: ['transform-es2015-modules-systemjs']
 	},
 
