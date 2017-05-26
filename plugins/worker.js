@@ -21,7 +21,7 @@ SystemJS.amdDefine('getlibs/utils/worker', [], function(){
 				port.postMessage(JSON.stringify({
 					id: request.id,
 					error: {
-						message: err.message + ' (worker)',
+						message: err.message,
 						stack: err.stack
 					}
 				}));
