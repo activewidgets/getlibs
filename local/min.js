@@ -17,6 +17,7 @@
 	$import('cfg/rxjs.js');
 	$import('cfg/zone.js');
 
+	$import('plugins/idb.js');
 	$import('plugins/json.js');
 	$import('plugins/preload.js');
 	$import('plugins/cdnjs.js');
