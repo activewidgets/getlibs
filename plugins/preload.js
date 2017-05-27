@@ -22,19 +22,23 @@ SystemJS.amdDefine('getlibs/plugins/preload', [], function(){
 	}
 
 
-	return function(url){
-		return function(result){
+	function fetch(load, defaultFetch){
 
-			var prev = map[url];
+		var prev = map[load.address],
+			result = defaultFetch(load);
 
-			if (!prev) {
-				return result;
-			}
+		if (!prev) {
+			return result;
+		}
 
-			return System.import(prev).then(timeout).then(function(){
-				return result;
-			});
-		};
+		return System.import(prev).then(timeout).then(function(){
+			return result;
+		});
+	}
+
+
+	return {
+		fetch: fetch
 	};
 });
 

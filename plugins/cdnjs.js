@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/cdnjs', ['getlibs/plugins/preload'], function(preload){
+SystemJS.amdDefine('getlibs/plugins/cdnjs', [], function(){
 
 	var init = System.import('https://api.cdnjs.com/libraries!json').then(function(response){
 
@@ -36,13 +36,8 @@ SystemJS.amdDefine('getlibs/plugins/cdnjs', ['getlibs/plugins/preload'], functio
 
 			var loader = this;
 
-			function fetchDefault(){
-				var result = base.fetch ? base.fetch.call(loader, load, fetch) : fetch.call(loader, load);
-				return Promise.resolve(result).then(preload(load.address));
-			}
-
 			if (notcdnjs(load.address)){
-				return fetchDefault();
+				return base.fetch.call(loader, load, fetch);
 			}
 
 			return init.then(function(libs){
@@ -52,7 +47,7 @@ SystemJS.amdDefine('getlibs/plugins/cdnjs', ['getlibs/plugins/preload'], functio
 					item = libs[name];
 
 				if (!item){
-					return fetchDefault();
+					return base.fetch.call(loader, load, fetch);
 				}
 
 				var redirect = item.latest;
