@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/index', ['getlibs/plugins/preload'], function(preload){
+SystemJS.amdDefine('getlibs/plugins/index', [], function(){
 
 	var roots = ['https://unpkg.com/', 'https://cdnjs.cloudflare.com/'];
 
@@ -72,7 +72,7 @@ SystemJS.amdDefine('getlibs/plugins/index', ['getlibs/plugins/preload'], functio
 
 			var result = base.fetch ? base.fetch(load, defaultFetch) : defaultFetch(load);
 
-			return Promise.resolve(result).then(proceed, retry).then(preload(load.address));
+			return Promise.resolve(result).then(proceed, retry);
 		}
 
 		return loader;

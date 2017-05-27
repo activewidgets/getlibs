@@ -6,15 +6,15 @@ SystemJS.config({
 		'rxjs': {main: 'Rx.min.js', meta: {
 			'observable/*': {loader: 'pkg/Observable'},
 			'operator/*': {loader: 'pkg/Observable.prototype'},
-			'Rx.min.js': {loader: 'cdnjs'},
-			'Rx.js': {loader: 'cdnjs'},
+			'Rx.min.js': {loader: 'cdn'},
+			'Rx.js': {loader: 'cdn'},
 			'*': {loader: 'pkg'}
 		}}
 	},
 
 	map: {
-		'rxjs': '@cdnjs/@reactivex/rxjs',
-		'rxjs/Rx': '@cdnjs/@reactivex/rxjs',
-		'@reactivex/rxjs': '@cdnjs/@reactivex/rxjs'
+		'rxjs': '@reactivex/rxjs',
+		'rxjs/Rx': '@reactivex/rxjs',
+		'@reactivex/rxjs': '@reactivex/rxjs'
 	}
 });

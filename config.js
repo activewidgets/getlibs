@@ -21,16 +21,13 @@ SystemJS.config({
 		'hbs': 'getlibs/plugins/handlebars',
 		'vue-loader': 'getlibs/plugins/vue',
 
-		'cdnjs': 'getlibs/plugins/cdnjs',
+		'cdn': 'getlibs/plugins/js!getlibs/plugins/cdnjs',
 
 		'babel-standalone': 'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.2',
 		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2'
 	},
 
 	meta: {
-
-		'@cdnjs/*': {loader: 'cdnjs'},
-
 		'*.js': {loader: 'js'},
 		'*.ts': {loader: 'ts'},
 		'*.css': {loader: 'css'},

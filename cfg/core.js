@@ -4,13 +4,10 @@ SystemJS.config({
 	packages: {
 
 		'core-js': {main: 'core.min.js', meta: {
-			'core.min.js': {loader: 'cdnjs'},
-			'core.js': {loader: 'cdnjs'},
+			'core.min.js': {loader: 'cdn'},
+			'core.js': {loader: 'cdn'},
 			'*': {loader: 'pkg'}
 		}}
-	},
-
-	map: {
-		'core-js': '@cdnjs/core-js'
 	}
+
 });
