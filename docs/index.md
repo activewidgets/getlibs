@@ -1,5 +1,9 @@
+---
+title: getlibs
+---
 
-# unpkg.com/getlibs 
+![Code preview](code.gif)
+
 ## Modern javascript in static files. No server/build required.
 
 `getlibs` is a pre-configured module loader which pulls external dependencies directly from CDN and transpiles your code on the fly. 
