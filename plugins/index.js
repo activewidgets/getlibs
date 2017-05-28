@@ -33,6 +33,12 @@ SystemJS.amdDefine('getlibs/plugins/index', [], function(){
 	}
 
 
+	function fileAccessWarning(){
+		/* eslint no-console: "off" */
+		console.warn("Allow file access when running directly from files: http://getlibs.com/allow-file-access.html");
+	}
+
+
 	function build(base){
 
 		var loader = {};
@@ -42,16 +48,30 @@ SystemJS.amdDefine('getlibs/plugins/index', [], function(){
 		});
 
 
+		var loadingFromFiles = (location.protocol == 'file:'),
+			fileAccessAllowed;
+
+
 		loader.fetch = function(load, defaultFetch){
 
 			defineRoots(String(load.address));
 
 			function proceed(source){
+
+				if (load.address.indexOf('file:') == 0){
+					fileAccessAllowed = true;
+				}
+
 				load.source = source;
 				return source;
 			}
 
 			function retry(err){
+
+				if (loadingFromFiles && !fileAccessAllowed){
+					setTimeout(fileAccessWarning, 100);
+					throw new Error('No access to files or wrong path: ' + load.address);
+				}
 
 				var address = load.address,
 					index = address.replace(/\.(ts|js)$/, '/index.$1'),
