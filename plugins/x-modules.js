@@ -66,7 +66,7 @@
 	Object.keys(SystemJS.meta).forEach(function(key){
 
 		var meta = SystemJS.meta[key],
-			name = meta && meta.loader;
+			name = meta && key.indexOf('*.') == 0 && meta.loader;
 
 		name && makeLoader(name);
 	});

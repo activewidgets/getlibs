@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/cdnjs', [], function(){
+SystemJS.amdDefine('getlibs/loader/cdnjs', [], function(){
 
 	var init = System.import('https://api.cdnjs.com/libraries!json').then(function(response){
 
@@ -85,7 +85,10 @@ SystemJS.amdDefine('getlibs/plugins/cdnjs', [], function(){
 
 
 	function instantiate(load){
-		return System.import(load.address).then(build);
+
+		var path = load.address.substr(SystemJS.baseURL.length + 4);
+		path = (path == '@@') ? 'getlibs/plugins/preload' : path;
+		return System.import(path).then(build);
 	}
 
 
@@ -106,12 +109,11 @@ SystemJS.amdDefine('getlibs/plugins/cdnjs', [], function(){
 		}
 	});
 
-
 	var path, meta = {}, current = SystemJS.meta;
 
 	for(path in current){
 		if (path.indexOf('*.') == 0 && current[path].loader) {
-			meta['https://unpkg.com/' + path] = {loader: SystemJS.normalizeSync(current[path].loader) + '!getlibs/plugins/cdnjs'};
+			meta['https://unpkg.com/' + path] = {loader: 'cdn/' + current[path].loader};
 		}
 	}
 

@@ -6,6 +6,7 @@ SystemJS.config({
 	packages: {
 		'babel-standalone': {main: 'babel.min.js'},
 		'typescript': {main: 'typescript.min.js', meta: {'*': {exports: 'ts'}}},
+		'cdn': {main: '@@', defaultExtension: '', meta: {'*': {loader: 'getlibs/loader/cdnjs'}}},
 		'pkg': {main: '@@', defaultExtension: '', meta: {'*': {loader: 'getlibs/loader/package'}}}
 	},
 
@@ -20,8 +21,6 @@ SystemJS.config({
 		'json': 'getlibs/plugins/json',
 		'hbs': 'getlibs/plugins/handlebars',
 		'vue-loader': 'getlibs/plugins/vue',
-
-		'cdn': 'getlibs/plugins/preload!getlibs/plugins/cdnjs',
 
 		'babel-standalone': 'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.2',
 		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2'
