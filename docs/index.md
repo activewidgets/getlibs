@@ -43,6 +43,10 @@ var compile = require('lodash/template'),
 document.getElementById('app').innerHTML = render(data);
 ```
 
+<a href="https://github.com/activewidgets/getlibs-lodash-hello-js" target="_blanc">[Full Source]</a> &nbsp;
+<a href="https://activewidgets.github.io/getlibs-lodash-hello-js/" target="_blanc">[Open in browser]</a> &nbsp;
+
+
 ##### ES6/import
 ```js
 import React from 'react';
@@ -51,6 +55,10 @@ const msg = 'Hello World!';
 
 ReactDOM.render(<h1>{msg}</h1>, document.getElementById('app'));
 ```
+
+<a href="https://github.com/activewidgets/getlibs-react-hello-es" target="_blanc">[Full Source]</a> &nbsp;
+<a href="https://activewidgets.github.io/getlibs-react-hello-es/" target="_blanc">[Open in browser]</a> &nbsp;
+
 
 ##### Typescript
 ```ts
@@ -65,6 +73,11 @@ export class AppComponent {
     msg = 'Hello World!';
 }
 ```
+
+<a href="https://github.com/activewidgets/getlibs-angular-hello-ts" target="_blanc">[Full Source]</a> &nbsp;
+<a href="https://activewidgets.github.io/getlibs-angular-hello-ts/" target="_blanc">[Open in browser]</a> &nbsp;
+
+
 
 Use `System.import()` in a script tag to load your code into the page.
 ```html
