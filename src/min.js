@@ -5,8 +5,10 @@
 	$import('node_modules/systemjs/dist/system.src.js');
 
 	$import('src/libs.js');
+	$import('src/config.js');
+	$import('src/idb.js');
+	$import('src/worker.js');
 
-	$import('config/system.js');
 	$import('config/activewidgets.js');
 	$import('config/angular.js');
 	$import('config/angular-1.js');
@@ -19,14 +21,12 @@
 	$import('config/rxjs.js');
 	$import('config/zone.js');
 
-	$import('plugins/idb.js');
 	$import('plugins/json.js');
 	$import('plugins/preload.js');
 	$import('plugins/cdnjs.js');
 	$import('plugins/cached.js');
 	$import('plugins/index.js');
 	$import('plugins/scan.js');
-	$import('plugins/worker.js');
 	$import('plugins/js.js');
 	$import('plugins/babel.js');
 	$import('plugins/typescript.js');

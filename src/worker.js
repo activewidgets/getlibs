@@ -1,5 +1,5 @@
 ﻿
-define('getlibs/utils/worker', [], function(){
+define('getlibs/src/worker', [], function(){
 
 
 	function remote(){

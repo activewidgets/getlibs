@@ -1,5 +1,5 @@
 ﻿
-define('getlibs/plugins/babel', ['getlibs/utils/worker'], function(WebWorker){
+define('getlibs/plugins/babel', ['../src/worker'], function(WebWorker){
 
 	function transpiler(){
 

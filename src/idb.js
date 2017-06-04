@@ -1,5 +1,5 @@
 
-define('getlibs/plugins/idb', [], function(){
+define('getlibs/src/idb', [], function(){
 
 	var store = 'cache';
 
