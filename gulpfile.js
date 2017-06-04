@@ -3,6 +3,8 @@ var fs = require('fs'),
 	eslint = require('gulp-eslint'),
 	gulp = require('gulp'),
 	concat = require('gulp-concat'),
+	header = require('gulp-header'),
+	footer = require('gulp-footer'),
 	sourcemaps = require('gulp-sourcemaps'),
 	uglify = require('gulp-uglify'),
 	version = require('./package.json').version;
@@ -34,6 +36,8 @@ gulp.task('source', ['lint'], function() {
 	return gulp.src(files, {base: './'})
 		.pipe(sourcemaps.init())
 		.pipe(concat('src.js'))
+		.pipe(header('(function(){\n'))
+		.pipe(footer('\n})()'))
 		.pipe(sourcemaps.write('', cfg))
 		.pipe(gulp.dest(''));
 });
@@ -45,6 +49,8 @@ gulp.task('minified', ['lint'], function() {
 		.pipe(sourcemaps.init())
 		.pipe(uglify())
 		.pipe(concat('min.js'))
+		.pipe(header('(function(){'))
+		.pipe(footer('})()'))
 		.pipe(sourcemaps.write('', cfg))
 		.pipe(gulp.dest(''));
 });

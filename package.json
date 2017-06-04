@@ -25,6 +25,8 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^3.0.1",
+    "gulp-footer": "^1.0.5",
+    "gulp-header": "^1.8.8",
     "gulp-sourcemaps": "^2.4.0",
     "gulp-uglify": "^2.0.0",
     "systemjs": "^0.20.12",
