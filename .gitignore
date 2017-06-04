@@ -1,7 +1,4 @@
+/dist
 /node_modules
 /screenshots
-/min.js
-/min.js.map
-/src.js
-/src.js.map
 /server.js

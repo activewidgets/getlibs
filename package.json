@@ -2,16 +2,11 @@
   "name": "getlibs",
   "version": "0.0.7",
   "description": "Modern javascript in index.html or static files. No server/build required.",
-  "main": "src.js",
-  "unpkg": "min.js",
+  "main": "dist/src.js",
+  "unpkg": "dist/min.js",
   "files": [
-    "min.js",
-    "min.js.map",
-    "src.js",
-    "src.js.map",
-    "cfg",
-    "plugins",
-    "config.js"
+    "dist",
+    "plugins"
   ],
   "scripts": {
     "test": "gulp && wdio test/wdio.local.js",

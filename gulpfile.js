@@ -19,7 +19,9 @@ String(fs.readFileSync('local/min.js', {encoding:'utf8'})).split('\n').forEach(f
 
 
 var cfg = {
-	sourceMappingURLPrefix: 'https://unpkg.com/getlibs@' + version
+	includeContent: true,
+	destPath: './dist',
+	sourceMappingURLPrefix: 'https://unpkg.com/getlibs@' + version + '/dist'
 };
 
 
@@ -39,7 +41,7 @@ gulp.task('source', ['lint'], function() {
 		.pipe(header('(function(){\n'))
 		.pipe(footer('\n})()'))
 		.pipe(sourcemaps.write('', cfg))
-		.pipe(gulp.dest(''));
+		.pipe(gulp.dest('./dist'));
 });
 
 
@@ -52,7 +54,7 @@ gulp.task('minified', ['lint'], function() {
 		.pipe(header('(function(){'))
 		.pipe(footer('})()'))
 		.pipe(sourcemaps.write('', cfg))
-		.pipe(gulp.dest(''));
+		.pipe(gulp.dest('./dist'));
 });
 
 
