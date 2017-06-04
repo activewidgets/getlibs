@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/scan', [], function(){
+define('getlibs/plugins/scan', [], function(){
 
 	var angularPreloaded;
 

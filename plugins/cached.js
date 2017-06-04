@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/cached', ['getlibs/plugins/idb'], function(db){
+define('getlibs/plugins/cached', ['getlibs/plugins/idb'], function(db){
 
 
 	function fetch(){

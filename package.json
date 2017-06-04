@@ -51,7 +51,9 @@
     "globals": {
       "Promise": true,
       "System": true,
-      "SystemJS": true
+      "SystemJS": true,
+      "define": true,
+      "config": true
     },
     "env": {
       "browser": true

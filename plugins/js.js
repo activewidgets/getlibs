@@ -1,4 +1,4 @@
 ﻿
-SystemJS.amdDefine('getlibs/plugins/js', [], function(){
+define('getlibs/plugins/js', [], function(){
 	return {};
 });

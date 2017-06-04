@@ -1,5 +1,5 @@
 ﻿
-SystemJS.amdDefine('getlibs/utils/worker', [], function(){
+define('getlibs/utils/worker', [], function(){
 
 
 	function remote(){

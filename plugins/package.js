@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/loader/package', [], function(){
+define('getlibs/loader/package', [], function(){
 
 	function fetch(){
 		return ''

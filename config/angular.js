@@ -1,5 +1,5 @@
 
-SystemJS.config({
+config({
 
 	packages: {
 		'@angular/core': {main: 'bundles/core.umd.min.js', meta: {'*.js': {deps: ['core-js', 'zone.js', 'rxjs']}}},

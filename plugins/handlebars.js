@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/handlebars', ['handlebars'], function(Handlebars){
+define('getlibs/plugins/handlebars', ['handlebars'], function(Handlebars){
 
 	function translate(load){
 

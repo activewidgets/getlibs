@@ -1,5 +1,5 @@
 
-SystemJS.config({
+config({
 
 	baseURL: 'https://unpkg.com/',
 

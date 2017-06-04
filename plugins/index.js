@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/index', [], function(){
+define('getlibs/plugins/index', [], function(){
 
 	var roots = ['https://unpkg.com/', 'https://cdnjs.cloudflare.com/'];
 

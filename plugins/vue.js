@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/vue', [], function(){
+define('getlibs/plugins/vue', [], function(){
 
 	var reTemplate = /<template>([\s\S]*)<\/template>/,
 		reScript = /<script>([\s\S]*)<\/script>/,

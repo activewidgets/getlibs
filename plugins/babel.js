@@ -1,5 +1,5 @@
 ﻿
-SystemJS.amdDefine('getlibs/plugins/babel', ['getlibs/utils/worker'], function(WebWorker){
+define('getlibs/plugins/babel', ['getlibs/utils/worker'], function(WebWorker){
 
 	function transpiler(){
 

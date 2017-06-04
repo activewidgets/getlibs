@@ -1,5 +1,5 @@
 
-SystemJS.config({
+config({
 
 	packages: {
 		'activewidgets': {main: 'dist/ax.js'}

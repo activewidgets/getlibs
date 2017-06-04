@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/preload', [], function(){
+define('getlibs/plugins/preload', [], function(){
 
 	var map = System.preload.map;
 

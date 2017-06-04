@@ -1,5 +1,5 @@
 ﻿
-SystemJS.amdDefine('getlibs/plugins/typescript', ['getlibs/utils/worker'], function(WebWorker){
+define('getlibs/plugins/typescript', ['getlibs/utils/worker'], function(WebWorker){
 
 	function transpiler(){
 

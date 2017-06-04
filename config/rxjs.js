@@ -1,5 +1,5 @@
 
-SystemJS.config({
+config({
 
 	packages: {
 

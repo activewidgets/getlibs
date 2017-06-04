@@ -4,6 +4,8 @@
 	$import('node_modules/es6-promise/dist/es6-promise.auto.js');
 	$import('node_modules/systemjs/dist/system.src.js');
 
+	$import('src/libs.js');
+
 	$import('config/system.js');
 	$import('config/activewidgets.js');
 	$import('config/angular.js');

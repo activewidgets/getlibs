@@ -1,5 +1,5 @@
 
-SystemJS.config({
+config({
 
 	bundles: {
 		'aurelia-core': [

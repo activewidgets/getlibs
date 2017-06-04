@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/loader/cdnjs', [], function(){
+define('getlibs/loader/cdnjs', [], function(){
 
 	var init = System.import('https://api.cdnjs.com/libraries!json').then(function(response){
 
@@ -101,7 +101,7 @@ SystemJS.amdDefine('getlibs/loader/cdnjs', [], function(){
 
 (function(){
 
-	SystemJS.config({
+	config({
 		meta: {
 			'https://unpkg.com/*': {loader: 'cdn'},
 			'https://cdnjs.cloudflare.com/*.js': {loader: 'cdn'},
@@ -119,7 +119,7 @@ SystemJS.amdDefine('getlibs/loader/cdnjs', [], function(){
 
 	meta['https://unpkg.com/*.js'] = {loader: 'cdn'};
 
-	SystemJS.config({
+	config({
 		meta: meta
 	});
 

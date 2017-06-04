@@ -35,7 +35,7 @@
 	}
 
 
-	SystemJS.amdDefine(defaultLoader, [], tagLoader);
+	define(defaultLoader, [], tagLoader);
 
 
 	function registerLoader(name){
@@ -46,8 +46,8 @@
 
 		map[name] = xname;
 
-		SystemJS.amdDefine(xname, [basename], tagLoader);
-		SystemJS.config({map: map});
+		define(xname, [basename], tagLoader);
+		config({map: map});
 
 		return xname;
 	}
@@ -110,7 +110,7 @@
 			}
 		}
 
-		SystemJS.config({
+		config({
 			meta: meta
 		});
 

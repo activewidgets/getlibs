@@ -1,5 +1,5 @@
 
-SystemJS.config({
+config({
 
 	map: {
 		'inferno': 'https://unpkg.com/inferno/dist/inferno.min.js',

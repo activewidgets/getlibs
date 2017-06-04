@@ -1,5 +1,5 @@
 
-SystemJS.amdDefine('getlibs/plugins/idb', [], function(){
+define('getlibs/plugins/idb', [], function(){
 
 	var store = 'cache';
 
