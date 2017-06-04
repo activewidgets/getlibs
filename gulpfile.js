@@ -11,7 +11,7 @@ var fs = require('fs'),
 
 var files = [];
 
-String(fs.readFileSync('local/min.js', {encoding:'utf8'})).split('\n').forEach(function(line){
+String(fs.readFileSync('src/min.js', {encoding:'utf8'})).split('\n').forEach(function(line){
 	if (line.match(/\$import\(.(.+).\);/)){
 		files.push(RegExp.$1);
 	}

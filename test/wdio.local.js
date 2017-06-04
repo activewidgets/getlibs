@@ -29,7 +29,7 @@ exports.config = {
     staticServerFolders: [
     	{ mount: '/node_modules', path: './node_modules' },
     	{ mount: '/examples', path: './examples' },
-    	{ mount: '/local', path: './dist' }
+    	{ mount: '/src', path: './dist' }
     ],
 
     framework: 'mocha',
