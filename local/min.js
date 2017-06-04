@@ -3,19 +3,19 @@
 
 	$import('node_modules/es6-promise/dist/es6-promise.auto.js');
 	$import('node_modules/systemjs/dist/system.src.js');
-	$import('config.js');
 
-	$import('cfg/activewidgets.js');
-	$import('cfg/angular.js');
-	$import('cfg/angular-1.js');
-	$import('cfg/aurelia.js');
-	$import('cfg/core.js');
-	$import('cfg/ember.js');
-	$import('cfg/inferno.js');
-	$import('cfg/lodash.js');
-	$import('cfg/react.js');
-	$import('cfg/rxjs.js');
-	$import('cfg/zone.js');
+	$import('config/system.js');
+	$import('config/activewidgets.js');
+	$import('config/angular.js');
+	$import('config/angular-1.js');
+	$import('config/aurelia.js');
+	$import('config/core.js');
+	$import('config/ember.js');
+	$import('config/inferno.js');
+	$import('config/lodash.js');
+	$import('config/react.js');
+	$import('config/rxjs.js');
+	$import('config/zone.js');
 
 	$import('plugins/idb.js');
 	$import('plugins/json.js');
