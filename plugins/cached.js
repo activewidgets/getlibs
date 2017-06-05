@@ -1,71 +1,42 @@
 
 define('getlibs/plugins/cached', ['../src/idb'], function(db){
 
+	function wrap(load, translate){
 
-	function fetch(){
-		return ''
-	}
+		var loader = this,
+			source = load.source,
+			address = load.address;
 
 
-	function instantiate(base){
+		function save(result){
 
-		var transpilerLoaded;
+			var item = {
+				input: source,
+				result: result,
+				sourceMap: load.metadata.sourceMap
+			};
 
-		function transpiler(loader, load, traceOpts){
-			return System.import(base.address).then(function(plugin){
-				return plugin.translate.call(loader, load, traceOpts);
+			return db.set(address, item).then(function(){
+				return result;
 			});
 		}
 
-		function translate(load, traceOpts){
 
-			var source = load.source,
-				address = load.address,
-				name = base.address.replace(/^.+plugins.(.+)/, '$1');
+		function compare(item){
 
-			if (!transpilerLoaded && address.match(/\.ts$/)){
-				System.import(base.address);
-				transpilerLoaded = true;
+			if (item && item.input == source){
+				load.metadata.sourceMap = item.sourceMap;
+				return item.result;
 			}
 
-
-			function save(result){
-
-				var item = {
-					input: source,
-					result: result,
-					sourceMap: load.metadata.sourceMap,
-					transpiler: name
-				};
-
-				return db.set(address, item).then(function(){
-					return result;
-				});
-			}
-
-
-			function compare(item){
-
-				if (item && item.input == source && item.transpiler == name){
-					load.metadata.sourceMap = item.sourceMap;
-					return item.result;
-				}
-
-				return transpiler(this, load, traceOpts).then(save);
-			}
-
-
-			return db.get(address).then(compare);
+			return translate.call(loader, load).then(save);
 		}
 
-		return {
-			translate: translate
-		};
+
+		return db.get(address).then(compare);
 	}
 
-
 	return {
-		fetch: fetch,
-		instantiate: instantiate
+		wrap: wrap
 	};
 });

@@ -39,79 +39,55 @@ define('getlibs/plugins/index', [], function(){
 	}
 
 
-	function build(base){
-
-		var loader = {};
-
-		Object.keys(base).forEach(function(i){
-			loader[i] = base[i];
-		});
+	var loadingFromFiles = (location.protocol == 'file:'),
+		fileAccessAllowed;
 
 
-		var loadingFromFiles = (location.protocol == 'file:'),
-			fileAccessAllowed;
 
+	function fetch(load, defaultFetch){
 
-		loader.fetch = function(load, defaultFetch){
+		defineRoots(String(load.address));
 
-			defineRoots(String(load.address));
+		function proceed(source){
 
-			function proceed(source){
+			if (load.address.indexOf('file:') == 0){
+				fileAccessAllowed = true;
+			}
 
-				if (load.address.indexOf('file:') == 0){
-					fileAccessAllowed = true;
-				}
+			load.source = source;
+			return source;
+		}
 
+		function retry(err){
+
+			if (loadingFromFiles && !fileAccessAllowed){
+				setTimeout(fileAccessWarning, 100);
+				throw new Error('No access to files or wrong path: ' + load.address);
+			}
+
+			var address = load.address,
+				index = address.replace(/\.(ts|js)$/, '/index.$1'),
+				ext = RegExp.$1,
+				path = JSON.stringify(index),
+				source = (ext == 'ts') ?
+					'export * from' + path :
+					'module.exports = require(' + path + ')';
+
+			if (address.match(/\.(ts|js)$/) && !address.match(/index\.(ts|js)$/)){
 				load.source = source;
 				return source;
 			}
 
-			function retry(err){
-
-				if (loadingFromFiles && !fileAccessAllowed){
-					setTimeout(fileAccessWarning, 100);
-					throw new Error('No access to files or wrong path: ' + load.address);
-				}
-
-				var address = load.address,
-					index = address.replace(/\.(ts|js)$/, '/index.$1'),
-					ext = RegExp.$1,
-					path = JSON.stringify(index),
-					source = (ext == 'ts') ?
-						'export * from' + path :
-						'module.exports = require(' + path + ')';
-
-				if (address.match(/\.(ts|js)$/) && !address.match(/index\.(ts|js)$/)){
-					load.source = source;
-					return source;
-				}
-
-				throw err;
-			}
-
-
-			var result = base.fetch ? base.fetch(load, defaultFetch) : defaultFetch(load);
-
-			return Promise.resolve(result).then(proceed, retry);
+			throw err;
 		}
 
-		return loader;
-	}
 
-
-	function skip(){
-		return ''
-	}
-
-
-	function instantiate(load){
-		return System.import(load.address).then(build);
+		return Promise.resolve(defaultFetch(load)).then(proceed, retry);
 	}
 
 
 	return {
-		fetch: skip,
-		instantiate: instantiate
+		fetch: fetch
 	};
 });
 

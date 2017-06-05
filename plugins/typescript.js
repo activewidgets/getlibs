@@ -46,9 +46,8 @@ define('getlibs/plugins/typescript', ['../src/worker'], function(WebWorker){
 				throw error(result.diagnostics, load.address, load.source);
 			}
 
-			load.source = result.outputText.replace(/^\/\/# sourceMappingURL=.+/m, '');
 			load.metadata.sourceMap = JSON.parse(result.sourceMapText);
-			return load.source;
+			return result.outputText.replace(/^\/\/# sourceMappingURL=.+/m, '');
 		});
 	}
 

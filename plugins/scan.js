@@ -50,41 +50,18 @@ define('getlibs/plugins/scan', [], function(){
 	}
 
 
-	function build(base){
+	var baseURL = SystemJS.baseURL;
 
-		var loader = {},
-			baseURL = SystemJS.baseURL;
+	function translate(load){
 
-		Object.keys(base).forEach(function(i){
-			loader[i] = base[i];
-		});
-
-		loader.translate = function(load){
-
-			if (String(load.address).substr(0, baseURL.length) != baseURL){
-				scan(load);
-			}
-
-			return base.translate ? base.translate(load) : load.source;
-		};
-
-		return loader;
-	}
-
-
-	function skip(){
-		return ''
-	}
-
-
-	function instantiate(load){
-		return System.import(load.address).then(build);
+		if (String(load.address).substr(0, baseURL.length) != baseURL){
+			scan(load);
+		}
 	}
 
 
 	return {
-		fetch: skip,
-		instantiate: instantiate
+		translate: translate
 	};
 });
 

@@ -14,8 +14,6 @@ config({
 		'src': './src',
 		'app': './app',
 
-		'js': 'getlibs/plugins/js!getlibs/plugins/scan!getlibs/plugins/index',
-		'ts': 'getlibs/plugins/typescript!getlibs/plugins/cached!getlibs/plugins/scan!getlibs/plugins/index',
 		'css': 'systemjs-plugin-css',
 		'text': 'systemjs-plugin-text',
 		'json': 'getlibs/plugins/json',
@@ -52,5 +50,25 @@ config({
 		plugins: ['transform-es2015-modules-systemjs']
 	},
 
-	transpiler: 'getlibs/plugins/babel!getlibs/plugins/cached'
+	transpiler: '@babel'
 });
+
+
+define.loader('@babel', [
+	'getlibs/plugins/cached',
+	'getlibs/plugins/babel'
+]);
+
+
+define.loader('js', [
+	'getlibs/plugins/scan',
+	'getlibs/plugins/index'
+]);
+
+
+define.loader('ts', [
+	'getlibs/plugins/scan',
+	'getlibs/plugins/index',
+	'getlibs/plugins/cached',
+	'getlibs/plugins/typescript'
+]);

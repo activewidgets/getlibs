@@ -21,9 +21,8 @@ define('getlibs/plugins/babel', ['../src/worker'], function(WebWorker){
 
 	function translate(load){
 		return worker.call('translate', load.address, load.source, options).then(function(result){
-			load.source = result.code;
 			load.metadata.sourceMap = result.map;
-			return load.source;
+			return result.code;
 		});
 	}
 
