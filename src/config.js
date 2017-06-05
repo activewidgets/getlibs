@@ -61,13 +61,17 @@ define.loader('@babel', [
 
 define.loader('js', [
 	'plugins/scan',
-	'plugins/index'
+	'plugins/roots',
+	'plugins/index',
+	'plugins/files'
 ]);
 
 
 define.loader('ts', [
 	'plugins/scan',
+	'plugins/roots',
 	'plugins/index',
+	'plugins/files',
 	'plugins/cached',
 	'plugins/typescript'
 ]);

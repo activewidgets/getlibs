@@ -25,6 +25,8 @@
 	$import('plugins/preload.js');
 	$import('plugins/cdnjs.js');
 	$import('plugins/cached.js');
+	$import('plugins/files.js');
+	$import('plugins/roots.js');
 	$import('plugins/index.js');
 	$import('plugins/scan.js');
 	$import('plugins/js.js');
