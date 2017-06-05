@@ -1,6 +1,8 @@
 
 [![ActiveWidgets](http://www.activewidgets.com/include/logo/aw-logo-40.png?getlibs-readme)](http://www.activewidgets.com/)
 
+# https://unpkg.com/getlibs
+
 An in-browser [module loader](https://github.com/systemjs/systemjs) configured to get external dependencies directly from CDN. Includes babel/typescript. For quick prototyping, code sharing, teaching/learning - a super simple web dev environment without node/webpack/etc. 
 
 ![Code preview](http://getlibs.com/code.gif)
