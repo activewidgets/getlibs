@@ -1,5 +1,5 @@
 
-define('getlibs/plugins/vue', [], function(){
+define('vue-loader', [], function(){
 
 	var reTemplate = /<template>([\s\S]*)<\/template>/,
 		reScript = /<script>([\s\S]*)<\/script>/,

@@ -1,5 +1,5 @@
 
-define('getlibs/plugins/handlebars', ['handlebars'], function(Handlebars){
+define('hbs', ['handlebars'], function(Handlebars){
 
 	function translate(load){
 

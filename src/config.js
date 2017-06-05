@@ -16,12 +16,11 @@ config({
 
 		'css': 'systemjs-plugin-css',
 		'text': 'systemjs-plugin-text',
-		'json': 'getlibs/plugins/json',
-		'hbs': 'getlibs/plugins/handlebars',
-		'vue-loader': 'getlibs/plugins/vue',
 
 		'babel-standalone': 'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.2',
-		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2'
+		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2',
+
+		'plugins': 'getlibs/plugins'
 	},
 
 	meta: {
@@ -55,20 +54,20 @@ config({
 
 
 define.loader('@babel', [
-	'getlibs/plugins/cached',
-	'getlibs/plugins/babel'
+	'plugins/cached',
+	'plugins/babel'
 ]);
 
 
 define.loader('js', [
-	'getlibs/plugins/scan',
-	'getlibs/plugins/index'
+	'plugins/scan',
+	'plugins/index'
 ]);
 
 
 define.loader('ts', [
-	'getlibs/plugins/scan',
-	'getlibs/plugins/index',
-	'getlibs/plugins/cached',
-	'getlibs/plugins/typescript'
+	'plugins/scan',
+	'plugins/index',
+	'plugins/cached',
+	'plugins/typescript'
 ]);
