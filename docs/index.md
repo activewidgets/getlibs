@@ -3,22 +3,23 @@ title: Modern javascript. All front-end libraries. No server/build.
 description: the simplest way to start a new project.
 ---
 
+An in-browser [module loader](https://github.com/systemjs/systemjs) configured to get external dependencies directly from CDN. Includes babel/typescript. For quick prototyping, code sharing, teaching/learning - a super simple web dev environment without node/webpack/etc. 
 
 ![Code preview](code.gif)
 
-## All javascript libraries in one file
+## All front-end libraries
 
-`getlibs` is a pre-configured module loader which pulls external dependencies directly from CDN. Instead of tracking and installing each library just include a single script and you can import/require any front-end library available on NPM (via unpkg.com and cdnjs.com).
+Angular, React, Vue, Bootstrap, Handlebars, jQuery are included. Plus all packages from [cdnjs.com](https://cdnjs.com/) and all of NPM (via [unpkg.com](https://unpkg.com/)). Most front-end libraries should work out of the box - just use `import`/`require()`. If a popular library does not load, tell us and we'll try to solve it with some library-specific config.
 
 ## Write modern javascript (or typescript)
 
-Write ES6 or JSX or typescript and your code will be converted on the fly. The transpiler will run in a worker thread and process only the changed files. Except for the first time, you might not even notice the delay because all that happens in parallel with loading and initializing your UI framework.
+Use latest language features or JSX and the code will be transpiled in-browser via babel or typescript (if required). To make it fast the transpiler will start in a worker thread and only process the modified code. Unless you change many files at once or open the project for the first time, the transpiling should be barely noticeable as it runs in parallel with loading and initializing the UI framework.
 
 ## No server/build required
 
-Running your code with `getlibs` does not require any build process or even a web server. Just use static files, open in a browser and hit refresh :-). This might be the easiest way to start a new project, do some prototyping, share code samples, teach or learn the new stuff.
+No need for a build process or even a web server. Just use static files, open in a browser and hit refresh :-). Or run [Browsersync](https://www.browsersync.io/) in watch mode for auto-reload.
 
-However, before going to production, you still need to setup webpack/rollup/eslint/karma/whatever. The `getlibs` project is currently for DEV ONLY.
+ATTENTION! This is all good for dev environment only. Before going to production, you still need to setup webpack/rollup/eslint/karma/whatever and run a proper build. It is not a good idea to transpile your code in-browser in production (unless it is only required for a small number of older browsers - but we are not there yet :-).
 
 ## Installation
 
@@ -27,11 +28,17 @@ There is nothing to install, just include a link to `getlibs` script on CDN -
 ```html
 <script src="https://unpkg.com/getlibs"></script>
 ```
-Usually, there is no need to include anything else, all other code will be imported on demand by the loader.
 
 ## Usage
 
-Write javascript (or typescript) modules the same way as you would do for browserify/webpack/rollup bundlers. 
+Organize your code as separate modules and call `System.import()` to load the app.
+```html
+<script>
+    System.import('./main.js');
+</script>
+```
+
+Or use `<script type="x-module">...</script>` to put everything into `index.html`
 
 ##### ES5/require()
 ```js
@@ -78,18 +85,14 @@ export class AppComponent {
 <a href="https://activewidgets.github.io/getlibs-angular-hello-ts/" target="_blanc">[Open in browser]</a> &nbsp;
 
 
-
-Use `System.import()` in a script tag to load your code into the page.
-```html
-<script>
-    System.import('./main.js');
-</script>
-```
-
 ## How it works
 
-`getlibs` is a SystemJS module loader with custom configuration, which looks for all external modules directly on CDN.
+`getlibs` is based on [SystemJS](https://github.com/systemjs/systemjs) module loader. Instead of typical setup where it looks for external packages in `node_modules` directory, `getlibs` is configured to load libraries directly from NPM (via [unpkg.com](https://unpkg.com/)) or [cdnjs.com](https://cdnjs.com/), if available.
 
 ## About
 
-`getlibs` is an open source project developed by ActiveWidgets.
+[SystemJS](https://github.com/systemjs/systemjs) is a module loader developed by [Guy Bedford](https://github.com/guybedford).
+
+`getlibs` is a bundle of SystemJS with a custom config - maintained by [ActiveWidgets](http://www.activewidgets.com/). 
+
+[![ActiveWidgets](http://www.activewidgets.com/include/logo/aw-logo-40.png?getlibs-docs)](http://www.activewidgets.com/)

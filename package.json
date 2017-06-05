@@ -1,7 +1,7 @@
 {
   "name": "getlibs",
   "version": "0.0.7",
-  "description": "Modern javascript in index.html or static files. No server/build required.",
+  "description": "An in-browser module loader configured to get external dependencies directly from CDN. Includes babel/typescript. For quick prototyping, code sharing, teaching/learning - a super simple web dev environment without node/webpack/etc.",
   "main": "dist/src.js",
   "unpkg": "dist/min.js",
   "files": [
@@ -39,7 +39,13 @@
   "keywords": [
     "systemjs",
     "unpkg",
-    "cdnjs"
+    "cdnjs",
+    "babel",
+    "typescript",
+    "javascript",
+    "angular",
+    "react",
+    "vue"
   ],
   "author": "webmaster@activewidgets.com",
   "license": "MIT",
