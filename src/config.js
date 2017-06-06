@@ -18,7 +18,7 @@ config({
 		'text': 'systemjs-plugin-text',
 
 		'babel-standalone': 'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.2',
-		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.2',
+		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.4',
 
 		'plugins': 'getlibs/plugins'
 	},
