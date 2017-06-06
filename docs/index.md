@@ -3,6 +3,10 @@ title: Modern javascript. All front-end libraries. No server/build.
 description: the simplest way to start a new project.
 ---
 
+[![Version](https://img.shields.io/npm/v/getlibs.svg)](https://www.npmjs.com/package/getlibs)
+[![License](https://img.shields.io/npm/l/getlibs.svg)](https://www.npmjs.com/package/getlibs)
+[![Downloads](https://img.shields.io/npm/dm/getlibs.svg)](https://www.npmjs.com/package/getlibs)
+
 An in-browser [module loader](https://github.com/systemjs/systemjs) configured to get external dependencies directly from CDN. Includes babel/typescript. For quick prototyping, code sharing, teaching/learning - a super simple web dev environment without node/webpack/etc. 
 
 ![Code preview](code.gif)
