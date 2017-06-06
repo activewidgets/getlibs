@@ -1,4 +1,8 @@
 
+[![Version](https://img.shields.io/npm/v/getlibs.svg)](http://getlibs.com/)
+[![License](https://img.shields.io/npm/l/getlibs.svg)](http://getlibs.com/)
+[![Downloads](https://img.shields.io/npm/dm/getlibs.svg)](http://getlibs.com/)
+
 # https://unpkg.com/getlibs
 
 An in-browser [module loader](https://github.com/systemjs/systemjs) configured to get external dependencies directly from CDN. Includes babel/typescript. For quick prototyping, code sharing, teaching/learning - a super simple web dev environment without node/webpack/etc. 
