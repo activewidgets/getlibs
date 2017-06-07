@@ -21,7 +21,7 @@ Use latest language features or JSX and the code will be transpiled in-browser v
 
 ## No server/build required
 
-No need for a build process or even a web server. Just use static files, open in a browser and hit refresh :-). Or run [Browsersync](https://www.browsersync.io/) in watch mode for auto-reload.
+No need for a build process or even a web server. Just [use static files](#running-from-filesystem), open in a browser and hit refresh :-). Or run [Browsersync](https://www.browsersync.io/) in watch mode for auto-reload.
 
 ATTENTION! This is all good for dev environment only. Before going to production, you still need to setup webpack/rollup/eslint/karma/whatever and run a proper build. It is not a good idea to transpile your code in-browser in production (unless it is only required for a small number of older browsers - but we are not there yet :-).
 
@@ -88,6 +88,9 @@ export class AppComponent {
 <a href="https://github.com/activewidgets/getlibs-angular-hello-ts" target="_blanc">[Full Source]</a> &nbsp;
 <a href="https://activewidgets.github.io/getlibs-angular-hello-ts/" target="_blanc">[Open in browser]</a> &nbsp;
 
+## Running from filesystem
+
+You will get cross origin errors if you open the examples in chrome directly from the filesystem. To allow file access in chrome lauch it with `--allow-file-access-from-files` flag ([more info](https://stackoverflow.com/questions/18586921/how-to-launch-html-using-chrome-at-allow-file-access-from-files-mode)).
 
 ## How it works
 
