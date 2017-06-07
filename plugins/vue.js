@@ -73,7 +73,7 @@ define('vue-css', ['vue-content'], function(content){
 			text = content[address],
 			source = '';
 
-		if (String(text).match(/<template[^>]*>([\s\S]*)<\/template>/)){
+		if (String(text).match(/<style[^>]*>([\s\S]*)<\/style>/)){
 
 			var style = RegExp.$1,
 				el = document.createElement('style');
