@@ -1,17 +1,19 @@
 
 <template>
-	<h1>{{msg}}</h1>
+	<div id="app">
+		<h1>{{msg}}</h1>
+	</div>
 </template>
 
 <script>
 
-module.exports = {
+export default {
 
-	data: function(){
+	data () {
 		return {
 			msg: 'Hello World!'
-		};
+		}
 	}
-};
+}
 
 </script>

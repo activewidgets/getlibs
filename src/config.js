@@ -32,8 +32,7 @@ config({
 		'*.htm': {loader: 'text'},
 		'*.html': {loader: 'text'},
 		'*.json': {loader: 'json'},
-		'*.hbs': {loader: 'hbs'},
-		'*.vue': {loader: 'vue-loader'}
+		'*.hbs': {loader: 'hbs'}
 	},
 
 	typescriptOptions: {

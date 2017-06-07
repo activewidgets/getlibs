@@ -4,15 +4,15 @@
 	<script src="../../../../src/min.js"></script>
 </head>
 <body>
-	<div id="app"><span>Loading..</span></div>
+	<div id="app">Loading..</div>
 
 	<script type="x-module">
 
 		var Vue = require('vue');
 
 		new Vue({
-			el: '#app span',
-			template: '<h1>{{msg}}</h1>',
+			el: '#app',
+			template: '<div id="app"><h1>{{msg}}</h1></div>',
 			data: {
 				msg: 'Hello World!'
 			}
