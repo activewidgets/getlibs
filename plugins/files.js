@@ -5,6 +5,12 @@ define('getlibs/plugins/files', [], function(){
 	function fileAccessWarning(){
 		/* eslint no-console: "off" */
 		console.warn("Allow file access when running directly from files: http://getlibs.com/allow-file-access.html");
+
+		var e = document.createElement('div');
+		e.innerHTML = '<div style="border: 1px solid red; padding: 30px; background: #fff; position: fixed; top: 20px; left: 20px;">' +
+			'getlibs error: file access not allowed (<a href="http://getlibs.com/allow-file-access.html">more info</a>)' +
+		'</div>';
+		document.body.appendChild(e);
 	}
 
 
