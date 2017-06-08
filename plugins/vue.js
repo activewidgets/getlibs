@@ -3,11 +3,12 @@ define('vue-loader', ['vue-content'], function(content){
 
 	function translate(load){
 
-		var address = load.address;
+		var address = load.address,
+			ext = SystemJS.resolveSync('./aaaa', address).match(/\.ts$/) ? '-ts' : '-js';
 
 		content[address] = load.source;
 
-		var source = 'module.exports = require(' + JSON.stringify(address + '-js') + ');\n';
+		var source = 'module.exports = require(' + JSON.stringify(address + ext) + ');\n';
 		source += 'module.exports = module.exports.default || module.exports;';
 		source += 'module.exports.template = require(' + JSON.stringify(address + '-html') + ');\n';
 		source += 'require(' + JSON.stringify(address + '-css') + ');\n';
@@ -26,7 +27,7 @@ define('vue-js', ['vue-content'], function(content){
 
 	function fetch(load){
 
-		var address = load.address.replace(/-js$/, ''),
+		var address = load.address.replace(/-.s$/, ''),
 			text = content[address],
 			source = 'module.exports = {}';
 
@@ -103,9 +104,17 @@ define('vue-content', [], function(){
 });
 
 
+define.loader('vue-ts', [
+	'vue-js',
+	'plugins/cached',
+	'plugins/typescript'
+]);
+
+
 config({
 	meta: {
 		'*.vue-js': {loader: 'vue-js'},
+		'*.vue-ts': {loader: 'vue-ts'},
 		'*.vue-html': {loader: 'vue-html'},
 		'*.vue-css': {loader: 'vue-css'},
 		'*.vue': {loader: 'vue-loader'}
