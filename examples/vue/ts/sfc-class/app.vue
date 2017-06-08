@@ -8,7 +8,11 @@
 <script>
 
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
+@Component({
+	name: 'hello'
+})
 export default class App extends Vue {
 	msg: string = 'Hello World!';
 }

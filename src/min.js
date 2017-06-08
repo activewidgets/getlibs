@@ -19,6 +19,7 @@
 	$import('config/lodash.js');
 	$import('config/react.js');
 	$import('config/rxjs.js');
+	$import('config/vue.js');
 	$import('config/zone.js');
 
 	$import('plugins/json.js');
