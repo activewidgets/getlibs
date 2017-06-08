@@ -8,10 +8,11 @@ define('vue-loader', ['vue-content'], function(content){
 
 		content[address] = load.source;
 
-		var source = 'module.exports = require(' + JSON.stringify(address + ext) + ');\n';
-		source += 'module.exports = module.exports.default || module.exports;';
-		source += 'module.exports.template = require(' + JSON.stringify(address + '-html') + ');\n';
-		source += 'require(' + JSON.stringify(address + '-css') + ');\n';
+		var source = 'module.exports = require("vue-builder")(';
+
+		source += 'require(' + JSON.stringify(address + ext) + '),\n';
+		source += 'require(' + JSON.stringify(address + '-html') + '),\n';
+		source += 'require(' + JSON.stringify(address + '-css') + '))\n';
 
 		return source;
 	}
@@ -23,13 +24,27 @@ define('vue-loader', ['vue-content'], function(content){
 });
 
 
+define('vue-builder', [], function(){
+	return function(component, template){
+
+		component = component || {};
+		component = component.default || component;
+
+		var options = component.options || component;
+		options.template = template || '';
+
+		return component;
+	};
+});
+
+
 define('vue-js', ['vue-content'], function(content){
 
 	function fetch(load){
 
 		var address = load.address.replace(/-.s$/, ''),
 			text = content[address],
-			source = 'module.exports = {}';
+			source = '';
 
 		if (String(text).match(/<script[^>]*>([\s\S]*)<\/script>/)){
 			source = RegExp.$1;
@@ -51,7 +66,7 @@ define('vue-html', ['vue-content'], function(content){
 
 		var address = load.address.replace(/-html$/, ''),
 			text = content[address],
-			source = 'module.exports = ""';
+			source = '';
 
 		if (String(text).match(/<template[^>]*>([\s\S]*)<\/template>/)){
 			source = 'module.exports = ' + JSON.stringify(RegExp.$1);
