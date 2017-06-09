@@ -22,6 +22,7 @@
 	$import('config/vue.js');
 	$import('config/zone.js');
 
+	$import('plugins/text.js');
 	$import('plugins/json.js');
 	$import('plugins/preload.js');
 	$import('plugins/cdnjs.js');
