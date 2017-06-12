@@ -8,6 +8,7 @@
 	$import('src/config.js');
 	$import('src/idb.js');
 	$import('src/worker.js');
+	$import('src/browsersync.js');
 
 	$import('config/activewidgets.js');
 	$import('config/angular.js');
