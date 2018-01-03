@@ -16,9 +16,7 @@
 	$import('config/aurelia.js');
 	$import('config/core.js');
 	$import('config/ember.js');
-	$import('config/inferno.js');
 	$import('config/lodash.js');
-	$import('config/react.js');
 	$import('config/rxjs.js');
 	$import('config/vue.js');
 	$import('config/zone.js');

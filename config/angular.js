@@ -10,17 +10,6 @@ config({
 		'@angular/forms': {main: 'bundles/forms.umd.min.js'},
 		'@angular/http': {main: 'bundles/http.umd.min.js'},
 		'@angular/router': {main: 'bundles/router.umd.min.js'}
-	},
-
-	map: {
-		'@angular/core': '@angular/core@4.1.3',
-		'@angular/common': '@angular/common@4.1.3',
-		'@angular/compiler': '@angular/compiler@4.1.3',
-		'@angular/platform-browser': '@angular/platform-browser@4.1.3',
-		'@angular/platform-browser-dynamic': '@angular/platform-browser-dynamic@4.1.3',
-		'@angular/forms': '@angular/forms@4.1.3',
-		'@angular/http': '@angular/http@4.1.3',
-		'@angular/router': '@angular/router@4.1.3'
 	}
 
 });
