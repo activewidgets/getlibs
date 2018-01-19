@@ -16,8 +16,8 @@ config({
 
 		'css': 'systemjs-plugin-css',
 
-		'babel-standalone': 'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.2',
-		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.3.4',
+		'babel-standalone': 'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0',
+		'typescript': 'https://cdnjs.cloudflare.com/ajax/libs/typescript/2.6.2',
 
 		'plugins': 'getlibs/plugins'
 	},
